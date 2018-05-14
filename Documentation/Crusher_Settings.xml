@@ -890,8 +890,8 @@
       </group>
     </Properties>
     <Methods>
-      <Enable v="don&amp;apos;t generate code" />
-      <Disable v="don&amp;apos;t generate code" />
+      <Enable v="generate code" />
+      <Disable v="generate code" />
       <EnableEvent v="don&amp;apos;t generate code" />
       <DisableEvent v="don&amp;apos;t generate code" />
       <SetRatio8 v="don&amp;apos;t generate code" />
@@ -1075,8 +1075,8 @@ Autoselect
       </group>
     </Properties>
     <Methods>
-      <Enable v="don&amp;apos;t generate code" />
-      <Disable v="don&amp;apos;t generate code" />
+      <Enable v="generate code" />
+      <Disable v="generate code" />
       <EnableEvent v="don&amp;apos;t generate code" />
       <DisableEvent v="don&amp;apos;t generate code" />
       <Start v="don&amp;apos;t generate code" />
@@ -1110,7 +1110,20 @@ Autoselect
     <Properties>
       <Component_name v="CMUserial" />
       <Channel v="SCI2" />
-      <boolgroup name="Interrupt service/event" v="Disabled" />
+      <boolgroup name="Interrupt service/event" v="Enabled">
+        <Interrupt_RxD v="Vsci2rx" />
+        <Interrupt_RxD_priority v="medium priority" />
+        <Interrupt_TxD v="Vsci2tx" />
+        <Interrupt_TxD_priority v="medium priority" />
+        <Interrupt_Error v="Vsci2err" />
+        <Interrupt_Error_priority v="medium priority" />
+        <Input_buffer_size v="8" />
+        <Output_buffer_size v="8" />
+        <group name="Handshake">
+          <boolgroup name="CTS" v="Disabled" />
+          <boolgroup name="RTS" v="Disabled" />
+        </group>
+      </boolgroup>
       <group name="Settings">
         <Parity v="none" />
         <Width v="8 bits" />
@@ -1151,10 +1164,10 @@ Autoselect
       <DisableEvent v="don&amp;apos;t generate code" />
       <RecvChar v="generate code" />
       <SendChar v="generate code" />
-      <RecvBlock v="don&amp;apos;t generate code" />
-      <SendBlock v="don&amp;apos;t generate code" />
-      <ClearRxBuf v="don&amp;apos;t generate code" />
-      <ClearTxBuf v="don&amp;apos;t generate code" />
+      <RecvBlock v="generate code" />
+      <SendBlock v="generate code" />
+      <ClearRxBuf v="generate code" />
+      <ClearTxBuf v="generate code" />
       <CharsInRxBuf v="don&amp;apos;t generate code" />
       <GetCharsInRxBuf v="generate code" />
       <CharsInTxBuf v="don&amp;apos;t generate code" />
@@ -1180,12 +1193,27 @@ Autoselect
       <Event_module_name v="Events" />
       <event name="BeforeNewSpeed" v="don&amp;apos;t generate code" />
       <event name="AfterNewSpeed" v="don&amp;apos;t generate code" />
-      <event name="OnError" v="don&amp;apos;t generate code" />
-      <event name="OnRxChar" v="don&amp;apos;t generate code" />
+      <event name="OnError" v="generate code">
+        <Event_procedure_name v="CMUserial_OnError" />
+        <Priority v="same as interrupt" />
+      </event>
+      <event name="OnRxChar" v="generate code">
+        <Event_procedure_name v="CMUserial_OnRxChar" />
+        <Priority v="same as interrupt" />
+      </event>
       <event name="OnRxCharExt" v="don&amp;apos;t generate code" />
-      <event name="OnTxChar" v="don&amp;apos;t generate code" />
-      <event name="OnFullRxBuf" v="don&amp;apos;t generate code" />
-      <event name="OnFreeTxBuf" v="don&amp;apos;t generate code" />
+      <event name="OnTxChar" v="generate code">
+        <Event_procedure_name v="CMUserial_OnTxChar" />
+        <Priority v="same as interrupt" />
+      </event>
+      <event name="OnFullRxBuf" v="generate code">
+        <Event_procedure_name v="CMUserial_OnFullRxBuf" />
+        <Priority v="same as interrupt" />
+      </event>
+      <event name="OnFreeTxBuf" v="generate code">
+        <Event_procedure_name v="CMUserial_OnFreeTxBuf" />
+        <Priority v="same as interrupt" />
+      </event>
       <event name="OnBreak" v="don&amp;apos;t generate code" />
       <event name="OnIdle" v="don&amp;apos;t generate code" />
       <event name="OnTxComplete" v="don&amp;apos;t generate code" />
@@ -1197,7 +1225,20 @@ Autoselect
     <Properties>
       <Component_name v="BLUETOOTHserial" />
       <Channel v="SCI1" />
-      <boolgroup name="Interrupt service/event" v="Disabled" />
+      <boolgroup name="Interrupt service/event" v="Enabled">
+        <Interrupt_RxD v="Vsci1rx" />
+        <Interrupt_RxD_priority v="medium priority" />
+        <Interrupt_TxD v="Vsci1tx" />
+        <Interrupt_TxD_priority v="medium priority" />
+        <Interrupt_Error v="Vsci1err" />
+        <Interrupt_Error_priority v="medium priority" />
+        <Input_buffer_size v="8" />
+        <Output_buffer_size v="8" />
+        <group name="Handshake">
+          <boolgroup name="CTS" v="Disabled" />
+          <boolgroup name="RTS" v="Disabled" />
+        </group>
+      </boolgroup>
       <group name="Settings">
         <Parity v="none" />
         <Width v="8 bits" />
@@ -1238,10 +1279,10 @@ Autoselect
       <DisableEvent v="don&amp;apos;t generate code" />
       <RecvChar v="generate code" />
       <SendChar v="generate code" />
-      <RecvBlock v="don&amp;apos;t generate code" />
-      <SendBlock v="don&amp;apos;t generate code" />
-      <ClearRxBuf v="don&amp;apos;t generate code" />
-      <ClearTxBuf v="don&amp;apos;t generate code" />
+      <RecvBlock v="generate code" />
+      <SendBlock v="generate code" />
+      <ClearRxBuf v="generate code" />
+      <ClearTxBuf v="generate code" />
       <CharsInRxBuf v="don&amp;apos;t generate code" />
       <GetCharsInRxBuf v="generate code" />
       <CharsInTxBuf v="don&amp;apos;t generate code" />
@@ -1267,16 +1308,64 @@ Autoselect
       <Event_module_name v="Events" />
       <event name="BeforeNewSpeed" v="don&amp;apos;t generate code" />
       <event name="AfterNewSpeed" v="don&amp;apos;t generate code" />
-      <event name="OnError" v="don&amp;apos;t generate code" />
-      <event name="OnRxChar" v="don&amp;apos;t generate code" />
+      <event name="OnError" v="generate code">
+        <Event_procedure_name v="BLUETOOTHserial_OnError" />
+        <Priority v="same as interrupt" />
+      </event>
+      <event name="OnRxChar" v="generate code">
+        <Event_procedure_name v="BLUETOOTHserial_OnRxChar" />
+        <Priority v="same as interrupt" />
+      </event>
       <event name="OnRxCharExt" v="don&amp;apos;t generate code" />
-      <event name="OnTxChar" v="don&amp;apos;t generate code" />
-      <event name="OnFullRxBuf" v="don&amp;apos;t generate code" />
-      <event name="OnFreeTxBuf" v="don&amp;apos;t generate code" />
+      <event name="OnTxChar" v="generate code">
+        <Event_procedure_name v="BLUETOOTHserial_OnTxChar" />
+        <Priority v="same as interrupt" />
+      </event>
+      <event name="OnFullRxBuf" v="generate code">
+        <Event_procedure_name v="BLUETOOTHserial_OnFullRxBuf" />
+        <Priority v="same as interrupt" />
+      </event>
+      <event name="OnFreeTxBuf" v="generate code">
+        <Event_procedure_name v="BLUETOOTHserial_OnFreeTxBuf" />
+        <Priority v="same as interrupt" />
+      </event>
       <event name="OnBreak" v="don&amp;apos;t generate code" />
       <event name="OnIdle" v="don&amp;apos;t generate code" />
       <event name="OnTxComplete" v="don&amp;apos;t generate code" />
       <event name="OnRxActiveEdge" v="don&amp;apos;t generate code" />
+    </Events>
+  </Bean>
+  <Bean name="Bit1" type="BitIO">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="Bit1" />
+      <Pin_for_I_O v="PTC5_RGPIO13_TPM3CH5_ACMP2O" />
+      <Pull_resistor v="pull up" />
+      <Open_drain v="push-pull" />
+      <Slew_rate_control_for_PTC5 v="no" />
+      <Drive_strength_for_PTC5 v="High" />
+      <Direction v="Input/Output" />
+      <group name="Initialization">
+        <Init__direction v="Output" />
+        <Init__value v="0" />
+      </group>
+      <Safe_mode v="yes" />
+      <Optimization_for v="speed" />
+    </Properties>
+    <Methods>
+      <GetDir v="don&amp;apos;t generate code" />
+      <SetDir v="generate code" />
+      <SetInput v="don&amp;apos;t generate code" />
+      <SetOutput v="don&amp;apos;t generate code" />
+      <GetVal v="generate code" />
+      <PutVal v="generate code" />
+      <ClrVal v="generate code" />
+      <SetVal v="generate code" />
+      <NegVal v="don&amp;apos;t generate code" />
+      <GetRawVal v="don&amp;apos;t generate code" />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
     </Events>
   </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>
