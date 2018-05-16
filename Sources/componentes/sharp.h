@@ -1,3 +1,6 @@
+#ifndef SHARP_H_
+#define SHARP_H_
+
 /* Modulos compartidos*/
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -10,4 +13,7 @@
 #include <math.h>
 
 double MedirSharp(void);
+
+
+#endif /* SHARP_H_ */
 

@@ -7,7 +7,6 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS_QUOTED += \
 "../Generated_Code/BLUETOOTHserial.c" \
-"../Generated_Code/Bit1.c" \
 "../Generated_Code/CMUserial.c" \
 "../Generated_Code/Cpu.c" \
 "../Generated_Code/IO_Map.c" \
@@ -21,7 +20,6 @@ C_SRCS_QUOTED += \
 
 C_SRCS += \
 ../Generated_Code/BLUETOOTHserial.c \
-../Generated_Code/Bit1.c \
 ../Generated_Code/CMUserial.c \
 ../Generated_Code/Cpu.c \
 ../Generated_Code/IO_Map.c \
@@ -35,7 +33,6 @@ C_SRCS += \
 
 OBJS += \
 ./Generated_Code/BLUETOOTHserial_c.obj \
-./Generated_Code/Bit1_c.obj \
 ./Generated_Code/CMUserial_c.obj \
 ./Generated_Code/Cpu_c.obj \
 ./Generated_Code/IO_Map_c.obj \
@@ -49,7 +46,6 @@ OBJS += \
 
 OBJS_QUOTED += \
 "./Generated_Code/BLUETOOTHserial_c.obj" \
-"./Generated_Code/Bit1_c.obj" \
 "./Generated_Code/CMUserial_c.obj" \
 "./Generated_Code/Cpu_c.obj" \
 "./Generated_Code/IO_Map_c.obj" \
@@ -63,7 +59,6 @@ OBJS_QUOTED += \
 
 C_DEPS += \
 ./Generated_Code/BLUETOOTHserial_c.d \
-./Generated_Code/Bit1_c.d \
 ./Generated_Code/CMUserial_c.d \
 ./Generated_Code/Cpu_c.d \
 ./Generated_Code/IO_Map_c.d \
@@ -77,7 +72,6 @@ C_DEPS += \
 
 OBJS_OS_FORMAT += \
 ./Generated_Code/BLUETOOTHserial_c.obj \
-./Generated_Code/Bit1_c.obj \
 ./Generated_Code/CMUserial_c.obj \
 ./Generated_Code/Cpu_c.obj \
 ./Generated_Code/IO_Map_c.obj \
@@ -91,7 +85,6 @@ OBJS_OS_FORMAT += \
 
 C_DEPS_QUOTED += \
 "./Generated_Code/BLUETOOTHserial_c.d" \
-"./Generated_Code/Bit1_c.d" \
 "./Generated_Code/CMUserial_c.d" \
 "./Generated_Code/Cpu_c.d" \
 "./Generated_Code/IO_Map_c.d" \
@@ -107,7 +100,7 @@ C_DEPS_QUOTED += \
 # Each subdirectory must supply rules for building sources it contributes
 Generated_Code/BLUETOOTHserial_c.obj: ../Generated_Code/BLUETOOTHserial.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #6 $<'
+	@echo 'Executing target #7 $<'
 	@echo 'Invoking: ColdFire Compiler'
 	"$(CF_ToolsDirEnv)/mwccmcf" @@"Generated_Code/BLUETOOTHserial.args" -o "Generated_Code/BLUETOOTHserial_c.obj" "$<" -MD -gccdep
 	@echo 'Finished building: $<'
@@ -116,14 +109,6 @@ Generated_Code/BLUETOOTHserial_c.obj: ../Generated_Code/BLUETOOTHserial.c
 Generated_Code/%.d: ../Generated_Code/%.c
 	@echo 'Regenerating dependency file: $@'
 	
-	@echo ' '
-
-Generated_Code/Bit1_c.obj: ../Generated_Code/Bit1.c
-	@echo 'Building file: $<'
-	@echo 'Executing target #7 $<'
-	@echo 'Invoking: ColdFire Compiler'
-	"$(CF_ToolsDirEnv)/mwccmcf" @@"Generated_Code/Bit1.args" -o "Generated_Code/Bit1_c.obj" "$<" -MD -gccdep
-	@echo 'Finished building: $<'
 	@echo ' '
 
 Generated_Code/CMUserial_c.obj: ../Generated_Code/CMUserial.c

@@ -47,8 +47,10 @@
 
 #include "componentes/cmu.h"
 #include "componentes/sharp.h"
+#include "componentes/control.h"
 
 double sharpDistancia;
+
 void main(void)
 {
   /* Write your local variable definition here */
@@ -76,8 +78,8 @@ void main(void)
 	for(;;){
 		switch(estado){
 			case INICIAR:
-				M1pwm_Disable();
-				M2pwm_Disable();
+				//M1pwm_Disable();
+				//M2pwm_Disable();
 				estado = BLUETOOTH;
 				break;
 			case BLUETOOTH:		
@@ -90,7 +92,8 @@ void main(void)
 				sharpDistancia = MedirSharp();
 				estado = CONTROL;
 				break;
-			case CONTROL:	
+			case CONTROL:
+				distanciaConstante(sharpDistancia);
 				estado = BLUETOOTH;
 				break;
 			default:

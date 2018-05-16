@@ -891,8 +891,8 @@
       </group>
     </Properties>
     <Methods>
-      <Enable v="don&amp;apos;t generate code" />
-      <Disable v="don&amp;apos;t generate code" />
+      <Enable v="generate code" />
+      <Disable v="generate code" />
       <EnableEvent v="don&amp;apos;t generate code" />
       <DisableEvent v="don&amp;apos;t generate code" />
       <SetRatio8 v="don&amp;apos;t generate code" />
@@ -2453,7 +2453,7 @@ Autoselect
       <Channel v="SCI2" />
       <boolgroup name="Interrupt service/event" v="Enabled">
         <Interrupt_RxD v="Vsci2rx" />
-        <Interrupt_RxD_priority v="minimal priority" />
+        <Interrupt_RxD_priority v="medium priority" />
         <Interrupt_TxD v="Vsci2tx" />
         <Interrupt_TxD_priority v="medium priority" />
         <Interrupt_Error v="Vsci2err" />
