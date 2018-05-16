@@ -18,4 +18,12 @@ Sources/componentes/sharp_c.obj: D:\Proyectos3\Crusher\Sources\componentes\sharp
 	D:\Proyectos3\Crusher\Generated_Code\IO_Map.h \
 	D:\Proyectos3\Crusher\Generated_Code\PE_Timer.h \
 	D:\Proyectos3\Crusher\Sources\componentes\sharp.h \
-	D:\Proyectos3\Crusher\Generated_Code\SHARPadc.h 
+	D:\Proyectos3\Crusher\Generated_Code\SHARPadc.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\math.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\cmath \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\math_api.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\coldfire\cmath_coldfire.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\math_config.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\ewl_t.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\coldfire\math_cf.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\cerrno 

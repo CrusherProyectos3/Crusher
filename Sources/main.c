@@ -46,7 +46,9 @@
 /* Librerias para cada componente */
 
 #include "componentes/cmu.h"
+#include "componentes/sharp.h"
 
+double sharpDistancia;
 void main(void)
 {
   /* Write your local variable definition here */
@@ -61,6 +63,8 @@ void main(void)
 
 	/* Variables para la maquina de estados */
 	unsigned char estado = INICIAR;
+	
+	
 
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
 
@@ -72,6 +76,8 @@ void main(void)
 	for(;;){
 		switch(estado){
 			case INICIAR:
+				M1pwm_Disable();
+				M2pwm_Disable();
 				estado = BLUETOOTH;
 				break;
 			case BLUETOOTH:		
@@ -81,13 +87,11 @@ void main(void)
 				estado = SHARP;
 				break;
 			case SHARP:
-				/*SHARPadc_Measure(TRUE);
-				SHARPadc_GetValue(&sharpValor);
-				aux = 3*sharpValor/4096;*/
+				sharpDistancia = MedirSharp();
 				estado = CONTROL;
 				break;
 			case CONTROL:	
-				estado = INICIAR;
+				estado = BLUETOOTH;
 				break;
 			default:
 				break;

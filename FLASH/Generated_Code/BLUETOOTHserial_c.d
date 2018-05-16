@@ -17,4 +17,11 @@ Generated_Code/BLUETOOTHserial_c.obj: D:\Proyectos3\Crusher\Generated_Code\BLUET
 	D:\Proyectos3\Crusher\Generated_Code\PE_Error.h \
 	D:\Proyectos3\Crusher\Generated_Code\PE_Const.h \
 	D:\Proyectos3\Crusher\Generated_Code\IO_Map.h \
-	D:\Proyectos3\Crusher\Generated_Code\PE_Timer.h 
+	D:\Proyectos3\Crusher\Generated_Code\PE_Timer.h \
+	D:\Proyectos3\Crusher\Sources\Events.h \
+	D:\Proyectos3\Crusher\Generated_Code\M1pwm.h \
+	D:\Proyectos3\Crusher\Generated_Code\M2pwm.h \
+	D:\Proyectos3\Crusher\Generated_Code\M1bit.h \
+	D:\Proyectos3\Crusher\Generated_Code\M2bit.h \
+	D:\Proyectos3\Crusher\Generated_Code\SHARPadc.h \
+	D:\Proyectos3\Crusher\Generated_Code\CMUserial.h 

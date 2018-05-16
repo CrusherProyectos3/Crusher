@@ -6,7 +6,7 @@
 **     Component   : PWM
 **     Version     : Component 02.241, Driver 01.28, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2018-05-11, 22:32, # CodeGen: 53
+**     Date/Time   : 2018-05-14, 14:15, # CodeGen: 59
 **     Abstract    :
 **         This component implements a pulse-width modulation generator
 **         that generates signal with variable duty and fixed cycle. 
@@ -48,6 +48,8 @@
 **             seconds (real)          : 0.001000006994 0.000399986903
 **
 **     Contents    :
+**         Enable     - byte M1pwm_Enable(void);
+**         Disable    - byte M1pwm_Disable(void);
 **         SetRatio16 - byte M1pwm_SetRatio16(word Ratio);
 **         SetDutyUS  - byte M1pwm_SetDutyUS(word Time);
 **         SetDutyMS  - byte M1pwm_SetDutyMS(word Time);
@@ -139,6 +141,50 @@ static void SetRatio(void)
   } else {
     TPM3C0V = (word)(((0x624EUL * (dword)ActualRatio)  + 0x8000UL) >> 0x10U); /* Calculate new compare value according to the given ratio */
   }
+}
+
+/*
+** ===================================================================
+**     Method      :  M1pwm_Enable (component PWM)
+**     Description :
+**         This method enables the component - it starts the signal
+**         generation. Events may be generated (<DisableEvent>
+**         /<EnableEvent>).
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte M1pwm_Enable(void)
+{
+  /* TPM3C0SC: CH0F=0,CH0IE=0,MS0B=1,MS0A=1,ELS0B=1,ELS0A=1,??=0,??=0 */
+  setReg8(TPM3C0SC, 0x3CU);            /* Set up PWM mode with output signal level low */ 
+  return ERR_OK;                       /* OK */
+}
+
+/*
+** ===================================================================
+**     Method      :  M1pwm_Disable (component PWM)
+**     Description :
+**         This method disables the component - it stops the signal
+**         generation and events calling. When the timer is disabled,
+**         it is possible to call <ClrValue> and <SetValue> methods.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte M1pwm_Disable(void)
+{
+  /* TPM3C0SC: CH0F=0,CH0IE=0,MS0B=0,MS0A=0,ELS0B=0,ELS0A=0,??=0,??=0 */
+  setReg8(TPM3C0SC, 0x00U);            /* Disable output signal */ 
+  return ERR_OK;                       /* OK */
 }
 
 /*

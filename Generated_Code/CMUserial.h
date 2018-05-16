@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.33, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2018-05-11, 22:32, # CodeGen: 53
+**     Date/Time   : 2018-05-14, 14:14, # CodeGen: 58
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -23,8 +23,8 @@
 **             Stop bits               : 1
 **             Parity                  : none
 **             Breaks                  : Disabled
-**             Input buffer size       : 0
-**             Output buffer size      : 0
+**             Input buffer size       : 8
+**             Output buffer size      : 8
 **
 **         Registers
 **             Input buffer            : SCI2D     [0xFFFF9877]
@@ -34,7 +34,13 @@
 **             Baud setting reg.       : SCI2BD    [0xFFFF9870]
 **             Special register        : SCI2S1    [0xFFFF9874]
 **
+**         Input interrupt
+**             Vector name             : Vsci2rx
+**             Priority                : 240
 **
+**         Output interrupt
+**             Vector name             : Vsci2tx
+**             Priority                : 240
 **
 **         Used pins:
 **         ----------------------------------------------------------
@@ -47,8 +53,14 @@
 **
 **
 **     Contents    :
+**         Enable          - byte CMUserial_Enable(void);
+**         Disable         - byte CMUserial_Disable(void);
 **         RecvChar        - byte CMUserial_RecvChar(CMUserial_TComData *Chr);
 **         SendChar        - byte CMUserial_SendChar(CMUserial_TComData Chr);
+**         RecvBlock       - byte CMUserial_RecvBlock(CMUserial_TComData *Ptr, word Size, word *Rcv);
+**         SendBlock       - byte CMUserial_SendBlock(CMUserial_TComData *Ptr, word Size, word *Snd);
+**         ClearRxBuf      - byte CMUserial_ClearRxBuf(void);
+**         ClearTxBuf      - byte CMUserial_ClearTxBuf(void);
 **         GetCharsInRxBuf - word CMUserial_GetCharsInRxBuf(void);
 **         GetCharsInTxBuf - word CMUserial_GetCharsInTxBuf(void);
 **
@@ -135,7 +147,44 @@
   typedef byte CMUserial_TComData ;    /* User type for communication. Size of this type depends on the communication data width. */
 #endif
 
+#define CMUserial_INP_BUF_SIZE 0x08U   /* Input buffer size */
+#define CMUserial_OUT_BUF_SIZE 0x08U   /* Output buffer size */
 
+extern byte CMUserial_OutLen;          /* Length of the output buffer content */
+extern byte CMUserial_InpLen;          /* Length of the input buffer content */
+
+byte CMUserial_Enable(void);
+/*
+** ===================================================================
+**     Method      :  CMUserial_Enable (component AsynchroSerial)
+**     Description :
+**         Enables the component - it starts the send and receive
+**         functions. Events may be generated
+**         ("DisableEvent"/"EnableEvent").
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+
+byte CMUserial_Disable(void);
+/*
+** ===================================================================
+**     Method      :  CMUserial_Disable (component AsynchroSerial)
+**     Description :
+**         Disables the component - it stops the send and receive
+**         functions. No events will be generated.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
 
 byte CMUserial_RecvChar(CMUserial_TComData *Chr);
 /*
@@ -195,8 +244,102 @@ byte CMUserial_SendChar(CMUserial_TComData Chr);
 ** ===================================================================
 */
 
+byte CMUserial_RecvBlock(CMUserial_TComData *Ptr,word Size,word *Rcv);
+/*
+** ===================================================================
+**     Method      :  CMUserial_RecvBlock (component AsynchroSerial)
+**     Description :
+**         If any data is received, this method returns the block of
+**         the data and its length (and incidental error), otherwise it
+**         returns an error code (it does not wait for data).
+**         This method is available only if non-zero length of the
+**         input buffer is defined and the receiver property is enabled.
+**         If less than requested number of characters is received only
+**         the available data is copied from the receive buffer to the
+**         user specified destination. The value ERR_EXEMPTY is
+**         returned and the value of variable pointed by the Rcv
+**         parameter is set to the number of received characters.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Ptr             - Pointer to the block of received data
+**         Size            - Size of the block
+**       * Rcv             - Pointer to real number of the received data
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_RXEMPTY - The receive buffer didn't
+**                           contain the requested number of data. Only
+**                           available data has been returned.
+**                           ERR_COMMON - common error occurred (the
+**                           GetError method can be used for error
+**                           specification)
+** ===================================================================
+*/
+
+byte CMUserial_SendBlock(const CMUserial_TComData * Ptr,word Size,word *Snd);
+/*
+** ===================================================================
+**     Method      :  CMUserial_SendBlock (component AsynchroSerial)
+**     Description :
+**         Sends a block of characters to the channel.
+**         This method is available only if non-zero length of the
+**         output buffer is defined and the transmitter property is
+**         enabled.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Ptr             - Pointer to the block of data to send
+**         Size            - Size of the block
+**       * Snd             - Pointer to number of data that are sent
+**                           (moved to buffer)
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_TXFULL - It was not possible to send
+**                           requested number of bytes
+** ===================================================================
+*/
+
+byte CMUserial_ClearRxBuf(void);
+/*
+** ===================================================================
+**     Method      :  CMUserial_ClearRxBuf (component AsynchroSerial)
+**     Description :
+**         Clears the receive buffer.
+**         This method is available only if non-zero length of the
+**         input buffer is defined and the receiver property is enabled.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+
+byte CMUserial_ClearTxBuf(void);
+/*
+** ===================================================================
+**     Method      :  CMUserial_ClearTxBuf (component AsynchroSerial)
+**     Description :
+**         Clears the transmit buffer.
+**         This method is available only if non-zero length of the
+**         output buffer is defined and the receiver property is
+**         enabled.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+
 #define CMUserial_GetCharsInRxBuf() \
-((word) SCI2S1_RDRF)                   /* Return number of chars in receive buffer */
+((word) CMUserial_InpLen)              /* Return number of chars in receive buffer */
 /*
 ** ===================================================================
 **     Method      :  CMUserial_GetCharsInRxBuf (component AsynchroSerial)
@@ -211,7 +354,7 @@ byte CMUserial_SendChar(CMUserial_TComData Chr);
 */
 
 #define CMUserial_GetCharsInTxBuf() \
-(SCI2S1_TDRE ? (word)0U : (word)1U)    /* Return number of chars in the transmitter buffer */
+((word) CMUserial_OutLen)              /* Return number of chars in the transmitter buffer */
 /*
 ** ===================================================================
 **     Method      :  CMUserial_GetCharsInTxBuf (component AsynchroSerial)
@@ -225,6 +368,43 @@ byte CMUserial_SendChar(CMUserial_TComData Chr);
 **                           buffer.
 ** ===================================================================
 */
+
+__interrupt void CMUserial_InterruptRx(void);
+/*
+** ===================================================================
+**     Method      :  CMUserial_InterruptRx (component AsynchroSerial)
+**
+**     Description :
+**         The method services the receive interrupt of the selected 
+**         peripheral(s) and eventually invokes the component's event(s).
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+
+__interrupt void CMUserial_InterruptTx(void);
+/*
+** ===================================================================
+**     Method      :  CMUserial_InterruptTx (component AsynchroSerial)
+**
+**     Description :
+**         The method services the transmit interrupt of the selected 
+**         peripheral(s) and eventually invokes the component's event(s).
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+
+__interrupt void CMUserial_InterruptError(void);
+/*
+** ===================================================================
+**     Method      :  CMUserial_InterruptError (component AsynchroSerial)
+**
+**     Description :
+**         The method services the error interrupt of the selected 
+**         peripheral(s) and eventually invokes the component's event(s).
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+
 
 void CMUserial_Init(void);
 /*

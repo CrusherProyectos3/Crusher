@@ -25,4 +25,13 @@ Sources/main_c.obj: D:\Proyectos3\Crusher\Sources\main.c \
 	D:\Proyectos3\Crusher\Generated_Code\SHARPadc.h \
 	D:\Proyectos3\Crusher\Generated_Code\CMUserial.h \
 	D:\Proyectos3\Crusher\Generated_Code\BLUETOOTHserial.h \
-	D:\Proyectos3\Crusher\Sources\componentes\cmu.h 
+	D:\Proyectos3\Crusher\Sources\componentes\cmu.h \
+	D:\Proyectos3\Crusher\Sources\componentes\sharp.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\math.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\cmath \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\math_api.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\coldfire\cmath_coldfire.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\math_config.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\ewl_t.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\coldfire\math_cf.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\cerrno 

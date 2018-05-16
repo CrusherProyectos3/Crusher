@@ -60,6 +60,158 @@ void SHARPadc_OnEnd(void);
 ** ===================================================================
 */
 
+void BLUETOOTHserial_OnError(void);
+/*
+** ===================================================================
+**     Event       :  BLUETOOTHserial_OnError (module Events)
+**
+**     Component   :  BLUETOOTHserial [AsynchroSerial]
+**     Description :
+**         This event is called when a channel error (not the error
+**         returned by a given method) occurs. The errors can be read
+**         using <GetError> method.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void BLUETOOTHserial_OnRxChar(void);
+/*
+** ===================================================================
+**     Event       :  BLUETOOTHserial_OnRxChar (module Events)
+**
+**     Component   :  BLUETOOTHserial [AsynchroSerial]
+**     Description :
+**         This event is called after a correct character is received.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled and either the <Receiver>
+**         property is enabled or the <SCI output mode> property (if
+**         supported) is set to Single-wire mode.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void BLUETOOTHserial_OnTxChar(void);
+/*
+** ===================================================================
+**     Event       :  BLUETOOTHserial_OnTxChar (module Events)
+**
+**     Component   :  BLUETOOTHserial [AsynchroSerial]
+**     Description :
+**         This event is called after a character is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void BLUETOOTHserial_OnFullRxBuf(void);
+/*
+** ===================================================================
+**     Event       :  BLUETOOTHserial_OnFullRxBuf (module Events)
+**
+**     Component   :  BLUETOOTHserial [AsynchroSerial]
+**     Description :
+**         This event is called when the input buffer is full;
+**         i.e. after reception of the last character 
+**         that was successfully placed into input buffer.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void BLUETOOTHserial_OnFreeTxBuf(void);
+/*
+** ===================================================================
+**     Event       :  BLUETOOTHserial_OnFreeTxBuf (module Events)
+**
+**     Component   :  BLUETOOTHserial [AsynchroSerial]
+**     Description :
+**         This event is called after the last character in output
+**         buffer is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void CMUserial_OnError(void);
+/*
+** ===================================================================
+**     Event       :  CMUserial_OnError (module Events)
+**
+**     Component   :  CMUserial [AsynchroSerial]
+**     Description :
+**         This event is called when a channel error (not the error
+**         returned by a given method) occurs. The errors can be read
+**         using <GetError> method.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void CMUserial_OnRxChar(void);
+/*
+** ===================================================================
+**     Event       :  CMUserial_OnRxChar (module Events)
+**
+**     Component   :  CMUserial [AsynchroSerial]
+**     Description :
+**         This event is called after a correct character is received.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled and either the <Receiver>
+**         property is enabled or the <SCI output mode> property (if
+**         supported) is set to Single-wire mode.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void CMUserial_OnTxChar(void);
+/*
+** ===================================================================
+**     Event       :  CMUserial_OnTxChar (module Events)
+**
+**     Component   :  CMUserial [AsynchroSerial]
+**     Description :
+**         This event is called after a character is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void CMUserial_OnFullRxBuf(void);
+/*
+** ===================================================================
+**     Event       :  CMUserial_OnFullRxBuf (module Events)
+**
+**     Component   :  CMUserial [AsynchroSerial]
+**     Description :
+**         This event is called when the input buffer is full;
+**         i.e. after reception of the last character 
+**         that was successfully placed into input buffer.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void CMUserial_OnFreeTxBuf(void);
+/*
+** ===================================================================
+**     Event       :  CMUserial_OnFreeTxBuf (module Events)
+**
+**     Component   :  CMUserial [AsynchroSerial]
+**     Description :
+**         This event is called after the last character in output
+**         buffer is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
 /* END Events */
 #endif /* __Events_H*/
 

@@ -7,6 +7,7 @@
 
 /* MODULOS */
 #include "SHARPadc.h"
+#include <math.h>
 
-
+double MedirSharp(void);
 
