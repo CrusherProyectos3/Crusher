@@ -18,5 +18,4 @@ Sources/componentes/cmu_c.obj: D:\Proyectos3\Crusher\Sources\componentes\cmu.c \
 	D:\Proyectos3\Crusher\Generated_Code\IO_Map.h \
 	D:\Proyectos3\Crusher\Generated_Code\PE_Timer.h \
 	D:\Proyectos3\Crusher\Sources\componentes\cmu.h \
-	D:\Proyectos3\Crusher\Generated_Code\CMUserial.h \
-	D:\Proyectos3\Crusher\Generated_Code\BLUETOOTHserial.h 
+	D:\Proyectos3\Crusher\Generated_Code\CMUserial.h 

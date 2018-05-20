@@ -42,6 +42,7 @@
 #include "SHARPadc.h"
 #include "CMUserial.h"
 #include "BLUETOOTHserial.h"
+#include "Bit1.h"
 
 
 void SHARPadc_OnEnd(void);

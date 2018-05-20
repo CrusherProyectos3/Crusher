@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.33, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2018-05-16, 15:29, # CodeGen: 61
+**     Date/Time   : 2018-05-19, 21:46, # CodeGen: 72
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -23,8 +23,8 @@
 **             Stop bits               : 1
 **             Parity                  : none
 **             Breaks                  : Disabled
-**             Input buffer size       : 8
-**             Output buffer size      : 8
+**             Input buffer size       : 16
+**             Output buffer size      : 9
 **
 **         Registers
 **             Input buffer            : SCI2D     [0xFFFF9877]
@@ -283,7 +283,9 @@ byte CMUserial_SendChar(CMUserial_TComData Chr)
   EnterCritical();                     /* Save the PS register */
   CMUserial_OutLen++;                  /* Increase number of bytes in the transmit buffer */
   OutBuffer[OutIndxW] = Chr;           /* Store char to buffer */
-  OutIndxW = (byte)((OutIndxW + 1U) & (CMUserial_OUT_BUF_SIZE - 1U)); /* Update index */
+  if (++OutIndxW >= CMUserial_OUT_BUF_SIZE) { /* Is the index out of the buffer? */
+    OutIndxW = 0U;                     /* Set the index to the start of the buffer */
+  }
   if (EnUser) {                        /* Is the device enabled by user? */
     if (SCI2C2_TIE == 0U) {            /* Is the transmit interrupt already enabled? */
       SCI2C2_TIE = 0x01U;              /* If no than enable transmit interrupt */
@@ -382,7 +384,9 @@ byte CMUserial_SendBlock(const CMUserial_TComData * Ptr, word Size, word *Snd)
     OnFreeTxBuf_semaphore = TRUE;      /* Set the OnFreeTxBuf_semaphore to block OnFreeTxBuf calling */
     CMUserial_OutLen++;                /* Increase number of bytes in the transmit buffer */
     OutBuffer[OutIndxW] = *Ptr++;      /* Store char to buffer */
-    OutIndxW = (byte)((OutIndxW + 1U) & (CMUserial_OUT_BUF_SIZE - 1U)); /* Update index */
+    if (++OutIndxW >= CMUserial_OUT_BUF_SIZE) { /* Is the index out of the buffer? */
+      OutIndxW = 0U;                   /* Set the index to the start of the buffer */
+    }
     count++;                           /* Increase the count of sent data */
     if ((count == Size) || (CMUserial_OutLen == CMUserial_OUT_BUF_SIZE)) { /* Is the last desired char put into buffer or the buffer is full? */
       if (!local_OnFreeTxBuf_semaphore) { /* Was the OnFreeTxBuf_semaphore clear before enter the method? */
@@ -563,7 +567,9 @@ ISR(CMUserial_InterruptTx)
     SerFlag |= RUNINT_FROM_TX;         /* Set flag "running int from TX" */
     (void)SCI2S1;                      /* Reset interrupt request flag */
     SCI2D = OutBuffer[OutIndxR];       /* Store char to transmitter register */
-    OutIndxR = (byte)((OutIndxR + 1U) & (CMUserial_OUT_BUF_SIZE - 1U)); /* Update index */
+    if (++OutIndxR >= CMUserial_OUT_BUF_SIZE) { /* Is the index out of the buffer? */
+      OutIndxR = 0U;                   /* Set the index to the start of the buffer */
+    }
   } else {
     if (!OnFreeTxBuf_semaphore) {
       OnFlags |= ON_FREE_TX;           /* Set flag "OnFreeTxBuf" */

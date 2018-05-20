@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.33, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2018-05-16, 15:29, # CodeGen: 61
+**     Date/Time   : 2018-05-19, 21:46, # CodeGen: 72
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -23,8 +23,8 @@
 **             Stop bits               : 1
 **             Parity                  : none
 **             Breaks                  : Disabled
-**             Input buffer size       : 8
-**             Output buffer size      : 8
+**             Input buffer size       : 16
+**             Output buffer size      : 9
 **
 **         Registers
 **             Input buffer            : SCI2D     [0xFFFF9877]
@@ -147,8 +147,8 @@
   typedef byte CMUserial_TComData ;    /* User type for communication. Size of this type depends on the communication data width. */
 #endif
 
-#define CMUserial_INP_BUF_SIZE 0x08U   /* Input buffer size */
-#define CMUserial_OUT_BUF_SIZE 0x08U   /* Output buffer size */
+#define CMUserial_INP_BUF_SIZE 0x10U   /* Input buffer size */
+#define CMUserial_OUT_BUF_SIZE 0x09U   /* Output buffer size */
 
 extern byte CMUserial_OutLen;          /* Length of the output buffer content */
 extern byte CMUserial_InpLen;          /* Length of the input buffer content */

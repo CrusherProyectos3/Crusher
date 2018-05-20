@@ -5,7 +5,7 @@
 **     Processor   : MCF51QE128CLK
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2018-05-16, 15:29, # CodeGen: 61
+**     Date/Time   : 2018-05-19, 22:23, # CodeGen: 76
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -64,6 +64,7 @@
 #include "SHARPadc.h"
 #include "CMUserial.h"
 #include "BLUETOOTHserial.h"
+#include "Bit1.h"
 #include "startcf.h"
 
 extern unsigned long far _SP_INIT[];

@@ -1,8 +1,8 @@
-Generated_Code/SHARPadc_c.obj: D:\Proyectos3\Crusher\Generated_Code\SHARPadc.c \
+Generated_Code/Bit1_c.obj: D:\Proyectos3\Crusher\Generated_Code\Bit1.c \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\lib_ewl.prefix \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\common.prefix \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\ewl_c_version.h \
-	D:\Proyectos3\Crusher\Sources\Events.h \
+	D:\Proyectos3\Crusher\Generated_Code\Bit1.h \
 	D:\Proyectos3\Crusher\Generated_Code\PE_Types.h \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\stdint.h \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\ansi_parms.h \
@@ -17,12 +17,4 @@ Generated_Code/SHARPadc_c.obj: D:\Proyectos3\Crusher\Generated_Code\SHARPadc.c \
 	D:\Proyectos3\Crusher\Generated_Code\PE_Const.h \
 	D:\Proyectos3\Crusher\Generated_Code\IO_Map.h \
 	D:\Proyectos3\Crusher\Generated_Code\PE_Timer.h \
-	D:\Proyectos3\Crusher\Generated_Code\M1pwm.h \
-	D:\Proyectos3\Crusher\Generated_Code\Cpu.h \
-	D:\Proyectos3\Crusher\Generated_Code\M2pwm.h \
-	D:\Proyectos3\Crusher\Generated_Code\M1bit.h \
-	D:\Proyectos3\Crusher\Generated_Code\M2bit.h \
-	D:\Proyectos3\Crusher\Generated_Code\SHARPadc.h \
-	D:\Proyectos3\Crusher\Generated_Code\CMUserial.h \
-	D:\Proyectos3\Crusher\Generated_Code\BLUETOOTHserial.h \
-	D:\Proyectos3\Crusher\Generated_Code\Bit1.h 
+	D:\Proyectos3\Crusher\Generated_Code\Cpu.h 

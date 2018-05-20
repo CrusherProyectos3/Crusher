@@ -38,7 +38,7 @@
         <Line>Project_Settings\Linker_Files\ProcessorExpert.lcf</Line>
         <Line>Generated_Code\Vectors.c</Line>
       </GenExtraFiles>
-      <XtraAge1>1286634424</XtraAge1>
+      <XtraAge1>1286845171</XtraAge1>
       <GenExtraFileType1>4</GenExtraFileType1>
       <GenExtraFileType0>4</GenExtraFileType0>
       <GenLinkedFiles lines_count="0" />
@@ -58,7 +58,8 @@
         <Line>CMUserial_OnFreeTxBuf</Line>
         <Line>SHARPadc_OnEnd</Line>
       </GenMethodsInEvents>
-      <GenAllModules lines_count="14">
+      <GenAllModules lines_count="15">
+        <Line>Bit1</Line>
         <Line>BLUETOOTHserial</Line>
         <Line>CMUserial</Line>
         <Line>Cpu</Line>
@@ -75,7 +76,7 @@
         <Line>SHARPadc</Line>
       </GenAllModules>
       <GenExternModules lines_count="0" />
-      <GenBeanModules lines_count="7">
+      <GenBeanModules lines_count="8">
         <Line>M1pwm</Line>
         <Line>M2pwm</Line>
         <Line>M1bit</Line>
@@ -83,11 +84,12 @@
         <Line>SHARPadc</Line>
         <Line>CMUserial</Line>
         <Line>BLUETOOTHserial</Line>
+        <Line>Bit1</Line>
       </GenBeanModules>
     </GenFiles>
     <SignalListFile>Documentation\Crusher_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>CodeWarriorColdFireV1</DestinationCompiler>
-    <ProjectModificationStamp>51</ProjectModificationStamp>
+    <ProjectModificationStamp>61</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>false</Generated>
@@ -155,7 +157,7 @@
     <GenDriverVersion>01.12</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1286634424</HeaderAge>
-    <CodeAge>1286634424</CodeAge>
+    <CodeAge>1286845171</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>19</GenNumMethods>
     <SetHighSpeed>false</SetHighSpeed>
@@ -818,8 +820,8 @@
     <GenComponentVersion>02.611</GenComponentVersion>
     <GenDriverVersion>01.33</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1286634424</HeaderAge>
-    <CodeAge>1286634424</CodeAge>
+    <HeaderAge>1286843860</HeaderAge>
+    <CodeAge>1286843860</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>30</GenNumMethods>
     <Enable>true</Enable>
@@ -1024,77 +1026,77 @@
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
       <LineBeg>255</LineBeg>
-      <LineEnd>294</LineEnd>
+      <LineEnd>296</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos19>RecvBlock</MethodPos19>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>295</LineBeg>
-      <LineEnd>350</LineEnd>
+      <LineBeg>297</LineBeg>
+      <LineEnd>352</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos20>SendBlock</MethodPos20>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>351</LineBeg>
-      <LineEnd>404</LineEnd>
+      <LineBeg>353</LineBeg>
+      <LineEnd>408</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos21>ClearRxBuf</MethodPos21>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>405</LineBeg>
-      <LineEnd>430</LineEnd>
+      <LineBeg>409</LineBeg>
+      <LineEnd>434</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos22>ClearTxBuf</MethodPos22>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>431</LineBeg>
-      <LineEnd>456</LineEnd>
+      <LineBeg>435</LineBeg>
+      <LineEnd>460</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos23>GetCharsInRxBuf</MethodPos23>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>457</LineBeg>
-      <LineEnd>474</LineEnd>
+      <LineBeg>461</LineBeg>
+      <LineEnd>478</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos24>GetCharsInTxBuf</MethodPos24>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>475</LineBeg>
-      <LineEnd>493</LineEnd>
+      <LineBeg>479</LineBeg>
+      <LineEnd>497</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos25>InterruptRx</MethodPos25>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>494</LineBeg>
-      <LineEnd>539</LineEnd>
+      <LineBeg>498</LineBeg>
+      <LineEnd>543</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos26>InterruptTx</MethodPos26>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>540</LineBeg>
-      <LineEnd>579</LineEnd>
+      <LineBeg>544</LineBeg>
+      <LineEnd>585</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos27>InterruptError</MethodPos27>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>580</LineBeg>
-      <LineEnd>598</LineEnd>
+      <LineBeg>586</LineBeg>
+      <LineEnd>604</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos28>Init</MethodPos28>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>599</LineBeg>
-      <LineEnd>635</LineEnd>
+      <LineBeg>605</LineBeg>
+      <LineEnd>641</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>0</GenExtraFilesCount>
   </ComponentID_38>
@@ -1356,6 +1358,89 @@
     </MethodPos>
     <GenExtraFilesCount>0</GenExtraFilesCount>
   </ComponentID_42>
+  <ComponentID_55>
+    <Generated>true</Generated>
+    <GenCompName>Bit1</GenCompName>
+    <GenComponentVersion>02.086</GenComponentVersion>
+    <GenDriverVersion>03.14</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1286705443</HeaderAge>
+    <CodeAge>1286705443</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>10</GenNumMethods>
+    <GetDir>false</GetDir>
+    <SetDir>false</SetDir>
+    <SetInput>false</SetInput>
+    <SetOutput>false</SetOutput>
+    <GetVal>true</GetVal>
+    <PutVal>true</PutVal>
+    <ClrVal>true</ClrVal>
+    <SetVal>true</SetVal>
+    <NegVal>false</NegVal>
+    <GetRawVal>false</GetRawVal>
+    <GenNumEvents>0</GenNumEvents>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>8</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>GetVal</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>102</LineBeg>
+      <LineEnd>122</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>PutVal</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>123</LineBeg>
+      <LineEnd>137</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos2>ClrVal</MethodPos2>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>138</LineBeg>
+      <LineEnd>150</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos3>SetVal</MethodPos3>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>151</LineBeg>
+      <LineEnd>163</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos4>GetVal</MethodPos4>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>100</LineBeg>
+      <LineEnd>122</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos5>PutVal</MethodPos5>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>123</LineBeg>
+      <LineEnd>144</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos6>ClrVal</MethodPos6>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>145</LineBeg>
+      <LineEnd>159</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos7>SetVal</MethodPos7>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>160</LineBeg>
+      <LineEnd>174</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>0</GenExtraFilesCount>
+  </ComponentID_55>
   <UsedSrcFiles>
     <SrcFile0>Drivers\ColdFireV1\BitIO.drv=1116866294</SrcFile0>
     <SrcFile1>Drivers\Common\CheckRegBits8_Rst.prg=1116866294</SrcFile1>

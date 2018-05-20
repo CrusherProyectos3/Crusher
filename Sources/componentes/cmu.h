@@ -10,16 +10,11 @@
 
 /* MODULOS */
 #include "CMUserial.h"
-#include "BLUETOOTHserial.h"
 
-/*Variables*/
-
-
-
-
-void mandarCMU(unsigned char bloque[],unsigned int tam);
-void mandarSerial(unsigned char bloque[],unsigned int tam);
-unsigned char recibirCMU(void);
+/* FUNCIONES */
+void ajusteInicialCMU(void);
+byte comprobarRespuesta(unsigned char data0);
 
 /* END cmu */
 #endif /* __cmu_H*/
+

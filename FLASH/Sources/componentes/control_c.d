@@ -21,4 +21,18 @@ Sources/componentes/control_c.obj: D:\Proyectos3\Crusher\Sources\componentes\con
 	D:\Proyectos3\Crusher\Generated_Code\M1pwm.h \
 	D:\Proyectos3\Crusher\Generated_Code\M2pwm.h \
 	D:\Proyectos3\Crusher\Generated_Code\M1bit.h \
-	D:\Proyectos3\Crusher\Generated_Code\M2bit.h 
+	D:\Proyectos3\Crusher\Generated_Code\M2bit.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\math.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\cmath \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\math_api.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\coldfire\cmath_coldfire.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\math_config.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\ewl_t.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\coldfire\math_cf.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\cerrno \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\stdlib.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\cstdlib \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\div_t.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\null.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\size_t.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\ewl_rsize_t.h 

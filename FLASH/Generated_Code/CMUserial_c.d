@@ -24,4 +24,5 @@ Generated_Code/CMUserial_c.obj: D:\Proyectos3\Crusher\Generated_Code\CMUserial.c
 	D:\Proyectos3\Crusher\Generated_Code\M1bit.h \
 	D:\Proyectos3\Crusher\Generated_Code\M2bit.h \
 	D:\Proyectos3\Crusher\Generated_Code\SHARPadc.h \
-	D:\Proyectos3\Crusher\Generated_Code\BLUETOOTHserial.h 
+	D:\Proyectos3\Crusher\Generated_Code\BLUETOOTHserial.h \
+	D:\Proyectos3\Crusher\Generated_Code\Bit1.h 

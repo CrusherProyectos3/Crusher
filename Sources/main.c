@@ -36,6 +36,7 @@
 #include "SHARPadc.h"
 #include "CMUserial.h"
 #include "BLUETOOTHserial.h"
+#include "Bit1.h"
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -49,24 +50,19 @@
 #include "componentes/sharp.h"
 #include "componentes/control.h"
 
-double sharpDistancia;
-
-void main(void)
-{
-  /* Write your local variable definition here */
-	/* Constantes para la maquina de estados */
-	enum ESTADOS {
+enum ESTADOS {
 		INICIAR,
 		BLUETOOTH,
 		CMU,
 		SHARP,
 		CONTROL
-	};
+};
+byte estado = INICIAR;
+double sharpDistancia;
 
-	/* Variables para la maquina de estados */
-	unsigned char estado = INICIAR;
-	
-	
+void main(void)
+{
+  /* Write your local variable definition here */
 
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
 
@@ -78,8 +74,13 @@ void main(void)
 	for(;;){
 		switch(estado){
 			case INICIAR:
-				//M1pwm_Disable();
-				//M2pwm_Disable();
+				//Motores apagados
+				M1pwm_Disable();
+				M2pwm_Disable();
+				
+				//ajustar Camara frontal CMU
+				ajusteInicialCMU();
+				
 				estado = BLUETOOTH;
 				break;
 			case BLUETOOTH:		
@@ -93,7 +94,7 @@ void main(void)
 				estado = CONTROL;
 				break;
 			case CONTROL:
-				distanciaConstante(sharpDistancia);
+				//seguirPelota(sharpDistancia);
 				estado = BLUETOOTH;
 				break;
 			default:

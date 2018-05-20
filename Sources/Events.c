@@ -31,7 +31,7 @@
 #include "Events.h"
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
-
+extern byte estado;
 /*
 ** ===================================================================
 **     Event       :  SHARPadc_OnEnd (module Events)
@@ -125,6 +125,7 @@ void  BLUETOOTHserial_OnTxChar(void)
 void  BLUETOOTHserial_OnFullRxBuf(void)
 {
   /* Write your code here ... */
+	
 }
 
 /*
@@ -234,17 +235,3 @@ void  CMUserial_OnFreeTxBuf(void)
 {
   /* Write your code here ... */
 }
-
-/* END Events */
-
-/*!
-** @}
-*/
-/*
-** ###################################################################
-**
-**     This file was created by Processor Expert 10.3 [05.09]
-**     for the Freescale ColdFireV1 series of microcontrollers.
-**
-** ###################################################################
-*/

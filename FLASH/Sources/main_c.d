@@ -25,6 +25,7 @@ Sources/main_c.obj: D:\Proyectos3\Crusher\Sources\main.c \
 	D:\Proyectos3\Crusher\Generated_Code\SHARPadc.h \
 	D:\Proyectos3\Crusher\Generated_Code\CMUserial.h \
 	D:\Proyectos3\Crusher\Generated_Code\BLUETOOTHserial.h \
+	D:\Proyectos3\Crusher\Generated_Code\Bit1.h \
 	D:\Proyectos3\Crusher\Sources\componentes\cmu.h \
 	D:\Proyectos3\Crusher\Sources\componentes\sharp.h \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\math.h \
@@ -35,4 +36,10 @@ Sources/main_c.obj: D:\Proyectos3\Crusher\Sources\main.c \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\ewl_t.h \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\coldfire\math_cf.h \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\cerrno \
-	D:\Proyectos3\Crusher\Sources\componentes\control.h 
+	D:\Proyectos3\Crusher\Sources\componentes\control.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\stdlib.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\cstdlib \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\div_t.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\null.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\size_t.h \
+	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\ewl_rsize_t.h 
