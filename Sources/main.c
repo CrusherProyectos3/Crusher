@@ -58,7 +58,7 @@ enum ESTADOS {
 		CONTROL
 };
 byte estado = INICIAR;
-double sharpDistancia;
+double sharpDistancia=0;
 float CMUx=0;
 
 
@@ -73,6 +73,7 @@ void main(void)
   /* Write your code here */
 	
 	/*CRUSHER IS HERE!*/
+
 	for(;;){
 		switch(estado){
 			case INICIAR:
@@ -81,10 +82,10 @@ void main(void)
 				M2pwm_Disable();
 				
 				//ajustar Camara frontal CMU
-				//ajusteInicialCMU();
-				//seleccionColor();
-				//CMUx = seguirColor();
-				//CMUx = seguirColor();
+				ajusteInicialCMU();
+				seleccionColor();
+				CMUx = seguirColor();
+				CMUx = seguirColor();
 
 				estado = BLUETOOTH;
 				break;
@@ -92,7 +93,7 @@ void main(void)
 				estado = CMU;
 				break;
 			case CMU:
-				//CMUx = seguirColor();
+				CMUx = seguirColor();
 				estado = SHARP;
 				break;
 			case SHARP:

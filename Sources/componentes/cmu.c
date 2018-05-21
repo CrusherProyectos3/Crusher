@@ -4,7 +4,6 @@
 
 const short BUFFER = 16;
 
-
 int i; //Indice
 
 unsigned short enviados;
@@ -39,7 +38,6 @@ void ajusteInicialCMU(void){
 	//Reset Camara
 	CMUserial_SendBlock(RS,sizeof(RS),&enviados);
 	Cpu_Delay100US(20000);
-	CMUserial_ClearRxBuf();
 
 	//Enciende LED
 	CMUserial_SendBlock(L11,sizeof(L11),&enviados);
@@ -84,11 +82,14 @@ void seleccionColor(void){
 }
 
 float seguirColor(void){
-
+	//limpiar buffer serial
 	CMUserial_ClearRxBuf();
+	//seguir color
 	CMUserial_SendBlock(TC,sizeof(TC),&enviados);
-	Cpu_Delay100US(5000);
+	Cpu_Delay100US(1000);
+	//recibe datos
 	CMUserial_RecvBlock(respuesta,BUFFER,&recibidos);
+	
 	if(respuesta[1]!= 77){
 		return 0.0;
 	}else{

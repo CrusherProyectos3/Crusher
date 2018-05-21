@@ -4,13 +4,13 @@
 
 #define M_PI 3.1415926 //Constante PI
 
-const float POSICION_REFERENCIA[2] = {0.0,12.0}; //POSICION VECTORIAL P = 0i + 10j
+const float POSICION_REFERENCIA[2] = {0.0,10.0}; //POSICION VECTORIAL P = 0i + 10j
 
 const float MAGNITUD_MAX = 10;
-const float MAGNITUD_MIN = 5;
+const float MAGNITUD_MIN = 4;
 const float LIMITE = 70;
 
-const float VELOCIDAD_MIN= 300;
+const float VELOCIDAD_MIN= 250;
 const float VELOCIDAD_MAX1 = 550;
 const float VELOCIDAD_MAX2 = 600;
 
@@ -37,23 +37,65 @@ void seguirPelota(double sharpDistancia,float CMUx){
 }
 
 void calculoMovimientoDeseado(float *posicionPelota, float *movimientoDeseado){
-	movimientoDeseado[0] = posicionPelota[0];
-	movimientoDeseado[1]= posicionPelota[1] - POSICION_REFERENCIA[1];
+	float test;
+	
+	movimientoDeseado[0] = posicionPelota[0]; //posicion x
+	movimientoDeseado[1] = posicionPelota[1]-POSICION_REFERENCIA[1];//posicion y
+	test = movimientoDeseado[1];
+
 }
 void moverVehiculo(float *movimientoDeseado){
 	calcularVelocidades(movimientoDeseado[0],movimientoDeseado[1],velocidades);
 	motores(velocidades);
 }
-void motores(float *velocidad){
-	velocidad[0] = velocidad[0]*VELOCIDAD_MAX1;
-	velocidad[1] = velocidad[1]*VELOCIDAD_MAX2;
+void calcularVelocidades(float x, float y, float *velocidades){
+	magnitud = (float)sqrt(pow(x,2)+pow(y,2));
 	
+	if(magnitud < MAGNITUD_MIN) magnitud = 0; // condicion para detener el vehiculo
+	else if(magnitud > LIMITE) magnitud = MAGNITUD_MIN; //Condicion no sobre-acelerar
+	else if(magnitud > MAGNITUD_MAX) magnitud = MAGNITUD_MAX; // Limitar velocidad
+	
+	magnitudNorm = magnitud/MAGNITUD_MAX; //normaliza la magnitud
+	
+	if(y>=0){ //distancia positiva
+		if(x==0){ //objetivo centro
+			velocidades[0]=magnitudNorm; //Izquierda
+			velocidades[1]=magnitudNorm; //Derecha
+		}
+		else if(x>0){ // objetivo a la derecha
+			velocidades[0]=magnitudNorm;
+			velocidades[1]=(float)(atan(y/x)/(M_PI))*magnitudNorm;
+		}
+		else{ //objetivo a la izquierda
+			velocidades[0]=(float)(atan(y/(-x))/(M_PI))*magnitudNorm;
+			velocidades[1]=magnitudNorm;
+		}
+	}else {//distancia negativa
+		if(x==0){
+			velocidades[0]=-magnitudNorm;
+			velocidades[1]=-magnitudNorm;
+		}
+		else if(x>0){
+			velocidades[0]=(float)(atan(y/x)/(M_PI))*magnitudNorm;
+			velocidades[1]=-magnitudNorm;
+		}
+		else{
+			velocidades[0]=-magnitudNorm;
+			velocidades[1]=(float)(atan(y/(-x))/(M_PI))*magnitudNorm;
+		}
+	}
+}
+
+void motores(float *velocidad){
+	velocidad[0] = velocidad[0]*VELOCIDAD_MAX1; //Motor Izquierdo
+	velocidad[1] = velocidad[1]*VELOCIDAD_MAX2; //Motor Derecho
+	/*
 	if (velocidad[0] > -VELOCIDAD_MIN && velocidad[0] < 0) velocidad[0] = -VELOCIDAD_MIN;
 	else if(velocidad[1] > 0 && velocidad[1] < VELOCIDAD_MIN) velocidad[1] = VELOCIDAD_MIN;
 	
 	if (velocidad[1] > -VELOCIDAD_MIN && velocidad[1] < 0) velocidad[1] = -VELOCIDAD_MIN;
 	else if(velocidad[1] > 0 && velocidad[1] < VELOCIDAD_MIN) velocidad[1] = VELOCIDAD_MIN;
-	
+	*/
 	//Adelante
 	if(velocidad[0] > 0){
 		M1pwm_SetDutyUS(velocidad[0]);
@@ -62,15 +104,17 @@ void motores(float *velocidad){
 		M1pwm_Enable();
 		M2pwm_Enable();
 		
-		M1bit_PutVal(TRUE);
-		M2bit_PutVal(TRUE);
+		M1bit_PutVal(FALSE);
+		M2bit_PutVal(FALSE);
 	}
 	//Retroceso
 	else if(velocidad[0] < 0){
 		M1pwm_SetDutyUS(-velocidad[0]);
 		M2pwm_SetDutyUS(-velocidad[1]);
-		M1bit_PutVal(FALSE);
-		M2bit_PutVal(FALSE);
+		
+		M1bit_PutVal(TRUE);
+		M2bit_PutVal(TRUE);
+		
 		M1pwm_Enable();
 		M2pwm_Enable();
 	}
@@ -78,42 +122,6 @@ void motores(float *velocidad){
 	else{
 		M1pwm_Disable();
 		M2pwm_Disable();	
-	}
-}
-void calcularVelocidades(float x, float y, float *velocidades){
-	magnitud = (float)sqrt(pow(x,2)+pow(y,2));
-	
-	if(magnitud < MAGNITUD_MIN) magnitud = 0;
-	else if(magnitud > LIMITE) magnitud = MAGNITUD_MIN;
-	else if(magnitud > MAGNITUD_MAX) magnitud = MAGNITUD_MAX;
-	
-	magnitudNorm = magnitud/MAGNITUD_MAX;
-	if(y>=0){
-		if(x==0){
-			velocidades[0]=magnitudNorm;
-			velocidades[1]=magnitudNorm;
-		}
-		else if(x>0){
-			velocidades[0]=magnitudNorm;
-			velocidades[1]=(float)(atan(y/x)/(M_PI/2))*magnitudNorm;
-		}
-		else{
-			velocidades[0]=(float)-(atan(y/x)/(M_PI/2))*magnitudNorm;
-			velocidades[1]=magnitudNorm;
-		}
-	}else {
-		if(x==0){
-			velocidades[0]=-magnitudNorm;
-			velocidades[1]=-magnitudNorm;
-		}
-		else if(x>0){
-			velocidades[0]=-magnitudNorm;
-			velocidades[1]=(float)(atan(y/x)/(M_PI/2))*magnitudNorm;
-		}
-		else{
-			velocidades[0]=(float)-(atan(y/x)/(M_PI/2))*magnitudNorm;
-			velocidades[1]=-magnitudNorm;
-		}
 	}
 }
 

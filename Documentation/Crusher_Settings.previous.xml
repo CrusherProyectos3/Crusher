@@ -979,7 +979,7 @@ autoselected pull
       <Direction v="Output" />
       <group name="Initialization">
         <Init__direction v="Output" />
-        <Init__value v="0" />
+        <Init__value v="1" />
       </group>
       <Safe_mode v="yes" />
       <Optimization_for v="speed" />
@@ -1017,7 +1017,7 @@ autoselected pull
       <Direction v="Output" />
       <group name="Initialization">
         <Init__direction v="Output" />
-        <Init__value v="0" />
+        <Init__value v="1" />
       </group>
       <Safe_mode v="yes" />
       <Optimization_for v="speed" />
@@ -1360,44 +1360,6 @@ autoselected pull
     <Methods>
       <GetDir v="don&amp;apos;t generate code" />
       <SetDir v="don&amp;apos;t generate code" />
-      <SetInput v="don&amp;apos;t generate code" />
-      <SetOutput v="don&amp;apos;t generate code" />
-      <GetVal v="generate code" />
-      <PutVal v="generate code" />
-      <ClrVal v="generate code" />
-      <SetVal v="generate code" />
-      <NegVal v="don&amp;apos;t generate code" />
-      <GetRawVal v="don&amp;apos;t generate code" />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="BUZZER" type="BitIO">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="BUZZER" />
-      <Pin_for_I_O v="PTB5_TPM1CH1_SS1" />
-      <Pull_resistor sel_value="no pull resistor">
-        
-autoselected pull
-
-        <EmptySection_DummyValue />
-      </Pull_resistor>
-      <Open_drain v="push-pull" />
-      <Slew_rate_control_for_PTB5 v="no" />
-      <Drive_strength_for_PTB5 v="High" />
-      <Direction v="Input/Output" />
-      <group name="Initialization">
-        <Init__direction v="Output" />
-        <Init__value v="0" />
-      </group>
-      <Safe_mode v="yes" />
-      <Optimization_for v="speed" />
-    </Properties>
-    <Methods>
-      <GetDir v="don&amp;apos;t generate code" />
-      <SetDir v="generate code" />
       <SetInput v="don&amp;apos;t generate code" />
       <SetOutput v="don&amp;apos;t generate code" />
       <GetVal v="generate code" />
