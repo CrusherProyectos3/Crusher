@@ -59,6 +59,8 @@ enum ESTADOS {
 };
 byte estado = INICIAR;
 double sharpDistancia;
+float CMUx=0;
+
 
 void main(void)
 {
@@ -79,14 +81,18 @@ void main(void)
 				M2pwm_Disable();
 				
 				//ajustar Camara frontal CMU
-				ajusteInicialCMU();
-				
+				//ajusteInicialCMU();
+				//seleccionColor();
+				//CMUx = seguirColor();
+				//CMUx = seguirColor();
+
 				estado = BLUETOOTH;
 				break;
 			case BLUETOOTH:		
 				estado = CMU;
 				break;
 			case CMU:
+				//CMUx = seguirColor();
 				estado = SHARP;
 				break;
 			case SHARP:
@@ -94,7 +100,7 @@ void main(void)
 				estado = CONTROL;
 				break;
 			case CONTROL:
-				//seguirPelota(sharpDistancia);
+				seguirPelota(sharpDistancia,CMUx);
 				estado = BLUETOOTH;
 				break;
 			default:

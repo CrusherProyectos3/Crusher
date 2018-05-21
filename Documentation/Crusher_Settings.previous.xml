@@ -1373,53 +1373,42 @@ autoselected pull
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="RESET" type="KBI">
+  <Bean name="BUZZER" type="BitIO">
     <Enabled v="Y" />
     <Properties>
-      <Component_name v="RESET" />
-      <KBI v="KBI1" />
-      <list name="Pins" v="1">
-        <group name="Pin0">
-          <Pin v="PTA2_KBI1P2_SDA1_ADP2" />
-          <Invert_interrupt_trigger_condition v="no" />
-        </group>
-      </list>
+      <Component_name v="BUZZER" />
+      <Pin_for_I_O v="PTB5_TPM1CH1_SS1" />
       <Pull_resistor sel_value="no pull resistor">
         
 autoselected pull
 
         <EmptySection_DummyValue />
       </Pull_resistor>
-      <Generate_interrupt_on sel_value="falling edge">
-        
-rising or falling edge
-
-        <EmptySection_DummyValue />
-      </Generate_interrupt_on>
-      <boolgroup name="Interrupt service/event" v="Enabled">
-        <Interrupt v="Vkeyboard" />
-        <Interrupt_priority v="high priority" />
-      </boolgroup>
+      <Open_drain v="push-pull" />
+      <Slew_rate_control_for_PTB5 v="no" />
+      <Drive_strength_for_PTB5 v="High" />
+      <Direction v="Input/Output" />
       <group name="Initialization">
-        <Enable_in_init__code v="yes" />
-        <Events_enabled_in_init_ v="yes" />
+        <Init__direction v="Output" />
+        <Init__value v="0" />
       </group>
+      <Safe_mode v="yes" />
+      <Optimization_for v="speed" />
     </Properties>
     <Methods>
-      <Enable v="don&amp;apos;t generate code" />
-      <Disable v="don&amp;apos;t generate code" />
-      <EnableEvent v="don&amp;apos;t generate code" />
-      <DisableEvent v="don&amp;apos;t generate code" />
+      <GetDir v="don&amp;apos;t generate code" />
+      <SetDir v="generate code" />
+      <SetInput v="don&amp;apos;t generate code" />
+      <SetOutput v="don&amp;apos;t generate code" />
       <GetVal v="generate code" />
-      <SetEdge v="generate code" />
-      <GetStatus v="don&amp;apos;t generate code" />
+      <PutVal v="generate code" />
+      <ClrVal v="generate code" />
+      <SetVal v="generate code" />
+      <NegVal v="don&amp;apos;t generate code" />
+      <GetRawVal v="don&amp;apos;t generate code" />
     </Methods>
     <Events>
-      <Event_module_name v="Events" />
-      <event name="OnInterrupt" v="generate code">
-        <Event_procedure_name v="RESET_OnInterrupt" />
-        <Priority v="same as interrupt" />
-      </event>
+      <EmptySection_DummyValue />
     </Events>
   </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>

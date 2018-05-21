@@ -38,7 +38,7 @@
         <Line>Project_Settings\Linker_Files\ProcessorExpert.lcf</Line>
         <Line>Generated_Code\Vectors.c</Line>
       </GenExtraFiles>
-      <XtraAge1>1286845171</XtraAge1>
+      <XtraAge1>1286847302</XtraAge1>
       <GenExtraFileType1>4</GenExtraFileType1>
       <GenExtraFileType0>4</GenExtraFileType0>
       <GenLinkedFiles lines_count="0" />
@@ -89,7 +89,7 @@
     </GenFiles>
     <SignalListFile>Documentation\Crusher_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>CodeWarriorColdFireV1</DestinationCompiler>
-    <ProjectModificationStamp>61</ProjectModificationStamp>
+    <ProjectModificationStamp>66</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>false</Generated>
@@ -156,8 +156,8 @@
     <GenComponentVersion>01.014</GenComponentVersion>
     <GenDriverVersion>01.12</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1286634424</HeaderAge>
-    <CodeAge>1286845171</CodeAge>
+    <HeaderAge>1286847302</HeaderAge>
+    <CodeAge>1286847302</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>19</GenNumMethods>
     <SetHighSpeed>false</SetHighSpeed>

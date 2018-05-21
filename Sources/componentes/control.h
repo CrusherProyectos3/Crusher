@@ -16,14 +16,15 @@
 #include <math.h>
 #include <stdlib.h>
 
-void seguirPelota(double sharpDistancia/*,datos de CMU*/);
+void seguirPelota(double sharpDistancia, float CMUx);
 
-float calculoPosicionPelota(double sharpDistancia);
+//float calculoPosicionPelota(double sharpDistancia);
 void calculoMovimientoDeseado(float *posicionPelota, float *movimientoDeseado);
 void moverVehiculo(float *posicionDeseada);
 
 void motores(float *velocidad);
 void calcularVelocidades(float x, float y, float *velocidades);
 
+void motoresSimple(float x, float y);
 
 #endif /* CONTROL_H_ */
