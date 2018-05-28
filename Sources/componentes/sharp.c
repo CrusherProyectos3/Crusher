@@ -6,9 +6,9 @@
 unsigned short sharpValor;
 float sharpNormal;
 
-double MedirSharp(void){
+float MedirSharp(void){
 	SHARPadc_Measure(TRUE);
 	SHARPadc_GetValue(&sharpValor);
 	sharpNormal = (float)sharpValor/4096;
-	return -597.6*pow(sharpNormal,3) + 810.97*pow(sharpNormal,2) - 383.94*sharpNormal + 73.601;
+	return (float) -597.6*pow(sharpNormal,3) + 810.97*pow(sharpNormal,2) - 383.94*sharpNormal + 73.601;
 }

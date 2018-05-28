@@ -22,6 +22,10 @@ Sources/componentes/control_c.obj: D:\Proyectos3\Crusher\Sources\componentes\con
 	D:\Proyectos3\Crusher\Generated_Code\M2pwm.h \
 	D:\Proyectos3\Crusher\Generated_Code\M1bit.h \
 	D:\Proyectos3\Crusher\Generated_Code\M2bit.h \
+	D:\Proyectos3\Crusher\Sources\componentes\cmu.h \
+	D:\Proyectos3\Crusher\Generated_Code\CMUserial.h \
+	D:\Proyectos3\Crusher\Sources\componentes\sharp.h \
+	D:\Proyectos3\Crusher\Generated_Code\SHARPadc.h \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\math.h \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\cmath \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\math_api.h \

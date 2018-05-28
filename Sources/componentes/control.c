@@ -4,15 +4,21 @@
 
 #define M_PI 3.1415926 //Constante PI
 
+/* Variables para Seguir Pelota */
+
+
 const float POSICION_REFERENCIA[2] = {0.0,10.0}; //POSICION VECTORIAL P = 0i + 10j
 
-const float MAGNITUD_MAX = 10;
+const float MAGNITUD_MAX = 6;
 const float MAGNITUD_MIN = 4;
 const float LIMITE = 70;
 
 const float VELOCIDAD_MIN= 250;
 const float VELOCIDAD_MAX1 = 550;
 const float VELOCIDAD_MAX2 = 600;
+
+const float RANGO_ESTABLE = 2;
+const float RANGO_X = 15;
 
 float pError[2]={0.0, 0.0};
 float dError[2]={0.0, 0.0};
@@ -27,14 +33,88 @@ float velocidades[2]={0.0, 0.0};
 float magnitud;
 float magnitudNorm;
 
+extern float posicionX;
+float posicionY;
+
 /*FUNCIONES PARA SEGUIR PELOTA DE COLOR*/
-void seguirPelota(double sharpDistancia,float CMUx){
-	posicionPelota[0] = CMUx;
-	posicionPelota[1] = (float)sharpDistancia;
-	calculoMovimientoDeseado(posicionPelota, movimientoDeseado);   //CONTROL PID
-	//motoresSimple(movimientoDeseado[0],movimientoDeseado[1]);
-	moverVehiculo(movimientoDeseado);
+void seguirPelota(){
+	M1pwm_SetDutyUS(0.5*VELOCIDAD_MAX1);
+	M2pwm_SetDutyUS(0.5*VELOCIDAD_MAX2);
+	do{
+		seguirColor();
+		girarVehiculo(posicionX);
+		Cpu_Delay100US(100);
+	}
+	while(posicionX < -RANGO_X || posicionX > RANGO_X);
+	
+	/*
+	do{
+		posicionY = MedirSharp();
+		posicionY = posicionY - POSICION_REFERENCIA[1];
+		desplazarVehiculo(posicionY);
+	}
+	while(posicionY < -RANGO_ESTABLE || posicionY > RANGO_ESTABLE);*/
 }
+
+void girarVehiculo(float posicionX){
+	/**********************
+	 * M1: MOTOR IZQUIERDO
+	 * M2: MOTOR DERECHO
+	 **********************/
+	
+	//Girar hacia la derecha
+	if(posicionX > RANGO_X){
+		M1bit_PutVal(TRUE);
+		M2bit_PutVal(FALSE);
+		M1pwm_Enable();
+		M2pwm_Enable();
+	}
+	//Girar hacia la izquierda
+	else if(posicionX < -RANGO_X){
+		M1bit_PutVal(FALSE);
+		M2bit_PutVal(TRUE);
+		M1pwm_Enable();
+		M2pwm_Enable();
+	}
+	//Centrado no girar
+	else{
+		M1bit_PutVal(FALSE);
+		M2bit_PutVal(FALSE);
+		M1pwm_Disable();
+		M2pwm_Disable();
+	}
+	
+}
+
+void desplazarVehiculo(float posicionY){
+	/**********************
+	 * M1: MOTOR IZQUIERDO
+	 * M2: MOTOR DERECHO
+	 **********************/
+	
+	//Avanzar
+	if(posicionY > RANGO_ESTABLE){
+		M1bit_PutVal(TRUE);
+		M2bit_PutVal(TRUE);
+		M1pwm_Enable();
+		M2pwm_Enable();
+	}
+	//Retroceso
+	else if(posicionY < -RANGO_ESTABLE){
+		M1bit_PutVal(FALSE);
+		M2bit_PutVal(FALSE);
+		M1pwm_Enable();
+		M2pwm_Enable();
+	}
+	//Centrado
+	else{
+		M1bit_PutVal(FALSE);
+		M2bit_PutVal(FALSE);
+		M1pwm_Disable();
+		M2pwm_Disable();
+	}
+}
+
 
 void calculoMovimientoDeseado(float *posicionPelota, float *movimientoDeseado){
 	float test;

@@ -52,12 +52,9 @@
 
 enum ESTADOS {
 		INICIAR,
-		BLUETOOTH,
-		CMU,
-		SHARP,
-		CONTROL
+		LOOP
 };
-byte estado = INICIAR;
+unsigned char estado = INICIAR;
 double sharpDistancia=0;
 float CMUx=0;
 
@@ -84,25 +81,14 @@ void main(void)
 				//ajustar Camara frontal CMU
 				ajusteInicialCMU();
 				seleccionColor();
-				CMUx = seguirColor();
-				CMUx = seguirColor();
-
-				estado = BLUETOOTH;
+				
+				
+				estado = LOOP;
 				break;
-			case BLUETOOTH:		
-				estado = CMU;
-				break;
-			case CMU:
-				CMUx = seguirColor();
-				estado = SHARP;
-				break;
-			case SHARP:
-				sharpDistancia = MedirSharp();
-				estado = CONTROL;
-				break;
-			case CONTROL:
-				seguirPelota(sharpDistancia,CMUx);
-				estado = BLUETOOTH;
+			case LOOP:
+				//Funcion para seguir pelota de color seleccionado
+				seguirPelota();
+				
 				break;
 			default:
 				break;

@@ -25,4 +25,5 @@ Generated_Code/BLUETOOTHserial_c.obj: D:\Proyectos3\Crusher\Generated_Code\BLUET
 	D:\Proyectos3\Crusher\Generated_Code\M2bit.h \
 	D:\Proyectos3\Crusher\Generated_Code\SHARPadc.h \
 	D:\Proyectos3\Crusher\Generated_Code\CMUserial.h \
-	D:\Proyectos3\Crusher\Generated_Code\Bit1.h 
+	D:\Proyectos3\Crusher\Generated_Code\Bit1.h \
+	D:\Proyectos3\Crusher\Sources\componentes\cmu.h 

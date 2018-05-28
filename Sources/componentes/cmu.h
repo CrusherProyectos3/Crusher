@@ -14,7 +14,8 @@
 /* FUNCIONES */
 void ajusteInicialCMU(void);
 void seleccionColor(void);
-float seguirColor(void);
+void seguirColor(void);
+void recibirColor(void);
 
 byte comprobarRespuesta(unsigned char data0);
 

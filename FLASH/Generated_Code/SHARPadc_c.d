@@ -25,4 +25,5 @@ Generated_Code/SHARPadc_c.obj: D:\Proyectos3\Crusher\Generated_Code\SHARPadc.c \
 	D:\Proyectos3\Crusher\Generated_Code\SHARPadc.h \
 	D:\Proyectos3\Crusher\Generated_Code\CMUserial.h \
 	D:\Proyectos3\Crusher\Generated_Code\BLUETOOTHserial.h \
-	D:\Proyectos3\Crusher\Generated_Code\Bit1.h 
+	D:\Proyectos3\Crusher\Generated_Code\Bit1.h \
+	D:\Proyectos3\Crusher\Sources\componentes\cmu.h 

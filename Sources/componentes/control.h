@@ -13,10 +13,15 @@
 #include "M1bit.h"
 #include "M2bit.h"
 
+#include "componentes/cmu.h"
+#include "componentes/sharp.h"
+
 #include <math.h>
 #include <stdlib.h>
 
-void seguirPelota(double sharpDistancia, float CMUx);
+void seguirPelota(void);
+void girarVehiculo(float posicionX);
+void desplazarVehiculo(float posicionY);
 
 //float calculoPosicionPelota(double sharpDistancia);
 void calculoMovimientoDeseado(float *posicionPelota, float *movimientoDeseado);

@@ -89,7 +89,7 @@
     </GenFiles>
     <SignalListFile>Documentation\Crusher_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>CodeWarriorColdFireV1</DestinationCompiler>
-    <ProjectModificationStamp>69</ProjectModificationStamp>
+    <ProjectModificationStamp>70</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>false</Generated>

@@ -31,7 +31,7 @@
 #include "Events.h"
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
-extern byte estado;
+extern unsigned char estado;
 /*
 ** ===================================================================
 **     Event       :  SHARPadc_OnEnd (module Events)
@@ -183,6 +183,9 @@ void  CMUserial_OnError(void)
 void  CMUserial_OnRxChar(void)
 {
   /* Write your code here ... */
+	if (estado == 1){
+		recibirColor();
+	}
 }
 
 /*
