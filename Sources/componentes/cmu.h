@@ -14,7 +14,7 @@
 /* FUNCIONES */
 void ajusteInicialCMU(void);
 void seleccionColor(void);
-void seguirColor(void);
+void ubicarColor(void);
 
 /* END cmu */
 #endif /* __cmu_H*/

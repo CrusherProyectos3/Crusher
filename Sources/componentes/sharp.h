@@ -14,6 +14,5 @@
 
 void medirSharp(void);
 
-
 #endif /* SHARP_H_ */
 

@@ -76,14 +76,17 @@ void main(void)
 				M1pwm_Disable();
 				M2pwm_Disable();
 				
+				//Configurar camara frontal CMU
 				ajusteInicialCMU();
+				
+				//Seleccionar Color frente a la camara
 				seleccionColor();
 				
 				estado = LOOP;
 				break;
 			case LOOP:
-				//Funcion para seguir pelota de color seleccionado
-				seguirPelota();
+				//Seguir color seleccionado
+				seguirColor();
 				
 				break;
 			default:

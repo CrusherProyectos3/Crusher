@@ -20,6 +20,6 @@
 #include <math.h>
 #include <stdlib.h>
 
-void seguirPelota(void);
+void seguirColor(void);
 
 #endif /* CONTROL_H_ */

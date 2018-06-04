@@ -52,8 +52,7 @@ void ajusteInicialCMU(void){
 }
 
 void seleccionColor(void){
-	//Pausa de 3 Segundos para que el Usuario ponga el Color cerca del robot
-	Cpu_Delay100US(30000); 
+	//Pausa 4 de  Segundos para que el usuario ponga el color en de frente a la camara
 	
 	//Poll Mode, un solo envio por vez
 	CMUserial_SendBlock(PM1,sizeof(PM1),&enviados);
@@ -74,7 +73,7 @@ void seleccionColor(void){
 	CMUserial_RecvBlock(respuesta,BUFFER,&recibidos);
 }
 
-void seguirColor(void){
+void ubicarColor(void){
 	/****************************************
 	 * 0 Byte always 255
 	 * 1 Byte always Character M
@@ -98,12 +97,12 @@ void seguirColor(void){
 	
 	//color no esta frente a la camara
 	if (respuesta[2] == 0&& respuesta[4] == 0){
-		posicion_x = posicionAnterior; // POSICION DE ERROR
-		posicionAnterior = ERROR;
+		posicion_x = posicionAnterior; 
+		posicionAnterior = ERROR; // Posicion de error para detener el vehiculo
 	}
 	else{
 		// Posicion del color respecto a la camara
-		posicion_x = 40 - respuesta[2]; //Mitad de esta camara es en el pixel 50
+		posicion_x = 40 - respuesta[2]; //Mitad de la camara es en el pixel 40, segun pruebas del 03/06/2018
 		posicionAnterior = posicion_x;
 	}
 }

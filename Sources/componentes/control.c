@@ -2,17 +2,22 @@
 #include "Cpu.h"
 #include "componentes/control.h"
 
-extern const int RANGO_X;
-extern const int ERROR;
-/* Variables para Seguir Color */
-extern int posicion_x;
-extern float posicion_y;
+extern const int RANGO_X; //Rango para estar centrado
 
-/*FUNCIONES PARA SEGUIR PELOTA DE COLOR*/
-void seguirPelota(){
+/* Variables para la posicion del Color */
+extern int posicion_x;  //Se modifica en la funcion ubicarColor de cmu.c
+extern float posicion_y; //Se modifica en la funcion medirSharp de sharp.c
+
+/*FUNCIONES PARA SEGUIR COLOR*/
+
+void seguirColor(){
+	//Obtiene la posicion del color
 	medirSharp();
-	seguirColor();
-	girarVehiculo(posicion_x); 
+	ubicarColor();
+	
+	//control de los motores
+	girarVehiculo(posicion_x);
+	//Si el color esta centrado puedes desplazas el vehiculo
 	if(posicion_x >= -RANGO_X && posicion_x <= RANGO_X){
 		desplazarVehiculo(posicion_y);
 	}
