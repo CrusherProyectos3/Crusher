@@ -12,6 +12,7 @@
 "./Generated_Code/BLUETOOTHserial_c.obj"
 "./Project_Settings/Startup_Code/startcf_c.obj"
 "./Sources/componentes/sharp_c.obj"
+"./Sources/componentes/motores_c.obj"
 "./Sources/componentes/control_c.obj"
 "./Sources/componentes/cmu_c.obj"
 "./Sources/main_c.obj"

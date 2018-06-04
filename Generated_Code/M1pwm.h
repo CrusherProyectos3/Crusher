@@ -6,7 +6,7 @@
 **     Component   : PWM
 **     Version     : Component 02.241, Driver 01.28, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2018-05-16, 15:29, # CodeGen: 61
+**     Date/Time   : 2018-06-03, 16:20, # CodeGen: 89
 **     Abstract    :
 **         This component implements a pulse-width modulation generator
 **         that generates signal with variable duty and fixed cycle. 

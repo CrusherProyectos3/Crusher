@@ -15,21 +15,11 @@
 
 #include "componentes/cmu.h"
 #include "componentes/sharp.h"
+#include "componentes/motores.h"
 
 #include <math.h>
 #include <stdlib.h>
 
 void seguirPelota(void);
-void girarVehiculo(float posicionX);
-void desplazarVehiculo(float posicionY);
-
-//float calculoPosicionPelota(double sharpDistancia);
-void calculoMovimientoDeseado(float *posicionPelota, float *movimientoDeseado);
-void moverVehiculo(float *posicionDeseada);
-
-void motores(float *velocidad);
-void calcularVelocidades(float x, float y, float *velocidades);
-
-void motoresSimple(float x, float y);
 
 #endif /* CONTROL_H_ */

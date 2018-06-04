@@ -15,9 +15,6 @@
 void ajusteInicialCMU(void);
 void seleccionColor(void);
 void seguirColor(void);
-void recibirColor(void);
-
-byte comprobarRespuesta(unsigned char data0);
 
 /* END cmu */
 #endif /* __cmu_H*/

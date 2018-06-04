@@ -2,18 +2,6 @@
 #include "Cpu.h"
 #include "componentes/cmu.h"
 
-const short BUFFER = 16;
-
-int i; //Indice
-
-unsigned short enviados;
-unsigned short recibidos;
-unsigned char respuesta[BUFFER];
-byte tipoPaquete;
-
-float posicionX;
-
-
 /* REGISTROS */
 const unsigned char r[1]={13};							//\r		  	ACK o NCK
 const unsigned char CR[9]={67,82,32,49,56,32,52,52,13}; 	//CR 18 44\r	Auto ajuste de la camara
@@ -33,7 +21,15 @@ const unsigned char SM1[4] = {83, 77, 49, 13};			//SM 1\r		Modo del tracking de 
 const unsigned char L11[5] = {76, 49, 32, 49, 13};		//L1 1\r		EnciendePrende Tracking LED
 const unsigned char L12[5] = {76, 49, 32, 48, 13};		//L1 0\r		Apaga Tracking LED
 
-int respuestaAnterior = 0;
+/*Variables*/
+const short BUFFER = 11;
+unsigned short enviados;
+unsigned short recibidos;
+unsigned char respuesta[BUFFER];
+
+int posicion_x = 0;
+int posicionAnterior = 0;
+const int ERROR = 1000;
 
 /* Funciones */
 void ajusteInicialCMU(void){
@@ -44,12 +40,11 @@ void ajusteInicialCMU(void){
 	//Enciende LED
 	CMUserial_SendBlock(L11,sizeof(L11),&enviados);
 	Cpu_Delay100US(20000);
-	
+
 	//Auto ajuste
+	//Pausa de 5 segundos para ajustar condiciones de luz
 	CMUserial_SendBlock(CR,sizeof(CR),&enviados);
-	for(i=0;i<5;i++){
-		Cpu_Delay100US(10000);   //Pausa de 5 segundos para ajustar condiciones de luz
-	}
+	Cpu_Delay100US(50000);   
 	
 	//Apaga LED
 	CMUserial_SendBlock(L12,sizeof(L12),&enviados);
@@ -57,8 +52,8 @@ void ajusteInicialCMU(void){
 }
 
 void seleccionColor(void){
-	//4 Segundos para que el Usuario ponga el Color cerca del robot
-	Cpu_Delay100US(40000); 
+	//Pausa de 3 Segundos para que el Usuario ponga el Color cerca del robot
+	Cpu_Delay100US(30000); 
 	
 	//Poll Mode, un solo envio por vez
 	CMUserial_SendBlock(PM1,sizeof(PM1),&enviados);
@@ -66,10 +61,6 @@ void seleccionColor(void){
 	
 	//Raw data mode 3, suprime ACK/NCK
 	CMUserial_SendBlock(RM3,sizeof(RM3),&enviados);
-	Cpu_Delay100US(10000);
-	
-	//Cambiar modo de paquete a tipo M
-	CMUserial_SendBlock(SM0,sizeof(SM0),&enviados);
 	Cpu_Delay100US(10000);
 	
 	//Enciende LED
@@ -81,10 +72,6 @@ void seleccionColor(void){
 	CMUserial_SendBlock(TW,sizeof(TW),&enviados);
 	Cpu_Delay100US(10000);
 	CMUserial_RecvBlock(respuesta,BUFFER,&recibidos);
-	
-	//
-	seguirColor();
-	seguirColor();
 }
 
 void seguirColor(void){
@@ -100,30 +87,23 @@ void seguirColor(void){
 	 * 8 Byte is Pixels
 	 * 9 Byte is Confidence
 	 ****************************************/
-	
-	//Limpiar buffer serial
-	CMUserial_ClearRxBuf();
-	
 	//Seguir color
-	CMUserial_SendBlock(TC,sizeof(TC),&enviados);
-	
-}
-void recibirColor(void){
-	//Recibe datos
-	CMUserial_RecvBlock(respuesta,BUFFER,&recibidos);
-		
-	//COMPROBACION DE PRESENCIA DE OBJETO
-	if (respuesta[1] == 77){
-		//Condicion cuando la camara no consigue el color a seguir
-		if(respuesta[2]==0 && respuesta[4]==0){
-			/*posible contador para detener movimiento*/
-			posicionX = respuestaAnterior;
-		}
-		//Condicion Normal
-		else{
-			respuestaAnterior = 40 - respuesta[2];
-			posicionX = 40 - respuesta[2];
-		}
+	//Ejecuta la siguiente rutina hasta que recibas un paquete tipo M
+	do{
+		CMUserial_SendBlock(TC,sizeof(TC),&enviados);
+		Cpu_Delay100US(1000);
+		CMUserial_RecvBlock(respuesta,BUFFER,&recibidos);
 	}
-	else posicionX = 0;
+	while(respuesta[1]!= 77);
+	
+	//color no esta frente a la camara
+	if (respuesta[2] == 0&& respuesta[4] == 0){
+		posicion_x = posicionAnterior; // POSICION DE ERROR
+		posicionAnterior = ERROR;
+	}
+	else{
+		// Posicion del color respecto a la camara
+		posicion_x = 40 - respuesta[2]; //Mitad de esta camara es en el pixel 50
+		posicionAnterior = posicion_x;
+	}
 }

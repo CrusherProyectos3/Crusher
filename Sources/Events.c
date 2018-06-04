@@ -183,9 +183,6 @@ void  CMUserial_OnError(void)
 void  CMUserial_OnRxChar(void)
 {
   /* Write your code here ... */
-	if (estado == 1){
-		recibirColor();
-	}
 }
 
 /*

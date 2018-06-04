@@ -37,6 +37,7 @@
 #include "CMUserial.h"
 #include "BLUETOOTHserial.h"
 #include "Bit1.h"
+
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -45,7 +46,6 @@
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 /* Librerias para cada componente */
-
 #include "componentes/cmu.h"
 #include "componentes/sharp.h"
 #include "componentes/control.h"
@@ -54,10 +54,8 @@ enum ESTADOS {
 		INICIAR,
 		LOOP
 };
-unsigned char estado = INICIAR;
-double sharpDistancia=0;
-float CMUx=0;
 
+unsigned char estado = INICIAR;
 
 void main(void)
 {
@@ -78,10 +76,8 @@ void main(void)
 				M1pwm_Disable();
 				M2pwm_Disable();
 				
-				//ajustar Camara frontal CMU
 				ajusteInicialCMU();
 				seleccionColor();
-				
 				
 				estado = LOOP;
 				break;

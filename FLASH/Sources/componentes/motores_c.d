@@ -1,8 +1,9 @@
-Generated_Code/Bit1_c.obj: D:\Proyectos3\Crusher_V2\Generated_Code\Bit1.c \
+Sources/componentes/motores_c.obj: D:\Proyectos3\Crusher_V2\Sources\componentes\motores.c \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\lib_ewl.prefix \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\common.prefix \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\ewl_c_version.h \
-	D:\Proyectos3\Crusher_V2\Generated_Code\Bit1.h \
+	D:\Proyectos3\Crusher_V2\Sources\componentes\motores.h \
+	D:\Proyectos3\Crusher_V2\Generated_Code\M1pwm.h \
 	D:\Proyectos3\Crusher_V2\Generated_Code\PE_Types.h \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\stdint.h \
 	C:\Freescale\CW\ MCU\ v10.6.4\MCU\ColdFire_Support\ewl\EWL_C\include\ansi_parms.h \
@@ -17,4 +18,9 @@ Generated_Code/Bit1_c.obj: D:\Proyectos3\Crusher_V2\Generated_Code\Bit1.c \
 	D:\Proyectos3\Crusher_V2\Generated_Code\PE_Const.h \
 	D:\Proyectos3\Crusher_V2\Generated_Code\IO_Map.h \
 	D:\Proyectos3\Crusher_V2\Generated_Code\PE_Timer.h \
-	D:\Proyectos3\Crusher_V2\Generated_Code\Cpu.h 
+	D:\Proyectos3\Crusher_V2\Generated_Code\Cpu.h \
+	D:\Proyectos3\Crusher_V2\Generated_Code\M2pwm.h \
+	D:\Proyectos3\Crusher_V2\Generated_Code\M1bit.h \
+	D:\Proyectos3\Crusher_V2\Generated_Code\M2bit.h \
+	D:\Proyectos3\Crusher_V2\Sources\componentes\cmu.h \
+	D:\Proyectos3\Crusher_V2\Generated_Code\CMUserial.h 

@@ -12,7 +12,7 @@
 #include "SHARPadc.h"
 #include <math.h>
 
-float MedirSharp(void);
+void medirSharp(void);
 
 
 #endif /* SHARP_H_ */

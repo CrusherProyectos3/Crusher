@@ -10,40 +10,40 @@
   </ToolchainSettings>
   <GeneratedFilesList>
     <GeneratedByPE>
-      <File Name="Generated_Code/PE_Error.h" FileDate="2018-05-16, 15:29:47" FileAge="1526500787832" FileType="45637" />
-      <File Name="Sources/Events.h" FileDate="2018-05-19, 23:26:12" FileAge="1526788572887" FileType="131328" />
-      <File Name="Generated_Code/SHARPadc.h" FileDate="2018-05-16, 15:29:48" FileAge="1526500788243" FileType="45637" CompNumb="36" />
-      <File Name="Sources/Events.c" FileDate="2018-05-19, 22:24:32" FileAge="1526784872728" FileType="131328" />
-      <File Name="Sources/main.c" FileDate="2018-05-23, 14:26:04" FileAge="1527101764117" FileType="128" />
-      <File Name="Generated_Code/SHARPadc.c" FileDate="2018-05-16, 15:29:48" FileAge="1526500788273" FileType="45637" CompNumb="36" />
-      <File Name="Generated_Code/BLUETOOTHserial.h" FileDate="2018-05-16, 15:29:48" FileAge="1526500788349" FileType="45637" CompNumb="42" />
-      <File Name="Generated_Code/M1pwm.h" FileDate="2018-05-16, 15:29:48" FileAge="1526500788174" FileType="45637" CompNumb="8" />
-      <File Name="Generated_Code/PE_Types.h" FileDate="2018-05-16, 15:29:47" FileAge="1526500787885" FileType="45637" />
-      <File Name="Generated_Code/PE_Timer.h" FileDate="2018-05-16, 15:29:47" FileAge="1526500787692" FileType="45637" />
-      <File Name="Generated_Code/BLUETOOTHserial.c" FileDate="2018-05-16, 15:29:48" FileAge="1526500788372" FileType="45637" CompNumb="42" />
-      <File Name="Generated_Code/M1pwm.c" FileDate="2018-05-16, 15:29:48" FileAge="1526500788202" FileType="45637" CompNumb="8" />
-      <File Name="Generated_Code/M2pwm.h" FileDate="2018-05-16, 15:29:48" FileAge="1526500788123" FileType="45637" CompNumb="9" />
-      <File Name="Generated_Code/M1bit.h" FileDate="2018-05-21, 11:47:00" FileAge="1526919420284" FileType="45637" CompNumb="11" />
       <File Name="Project_Settings/Linker_Files/ProcessorExpert.lcf" FileDate="2018-04-30, 13:47:11" FileAge="1525112231674" FileType="8" CompNumb="4" />
-      <File Name="Generated_Code/IO_Map.h" FileDate="2018-05-16, 15:29:47" FileAge="1526500787789" FileType="45637" />
-      <File Name="Generated_Code/PE_Timer.c" FileDate="2018-05-16, 15:29:47" FileAge="1526500787669" FileType="45637" />
-      <File Name="Documentation/Crusher_SIGNALS.txt" FileDate="2018-05-23, 15:02:41" FileAge="1527103961185" FileType="3072" />
-      <File Name="Generated_Code/M2pwm.c" FileDate="2018-05-16, 15:29:48" FileAge="1526500788079" FileType="45637" CompNumb="9" />
-      <File Name="Generated_Code/M1bit.c" FileDate="2018-05-21, 11:47:00" FileAge="1526919420269" FileType="45637" CompNumb="11" />
-      <File Name="Generated_Code/M2bit.h" FileDate="2018-05-21, 11:47:00" FileAge="1526919420192" FileType="45637" CompNumb="12" />
-      <File Name="Generated_Code/Cpu.h" FileDate="2018-05-19, 23:26:12" FileAge="1526788572820" FileType="45637" CompNumb="4" />
-      <File Name="Generated_Code/IO_Map.c" FileDate="2018-05-16, 15:29:47" FileAge="1526500787732" FileType="45637" />
-      <File Name="Generated_Code/M2bit.c" FileDate="2018-05-21, 11:47:00" FileAge="1526919420178" FileType="45637" CompNumb="12" />
-      <File Name="Generated_Code/CMUserial.h" FileDate="2018-05-19, 21:46:40" FileAge="1526782600110" FileType="45637" CompNumb="38" />
-      <File Name="Generated_Code/Cpu.c" FileDate="2018-05-21, 11:47:00" FileAge="1526919420511" FileType="45637" CompNumb="4" />
-      <File Name="Generated_Code/Vectors.c" FileDate="2018-05-19, 23:26:12" FileAge="1526788572864" FileType="45637" CompNumb="4" />
-      <File Name="Documentation/Crusher.txt" FileDate="2018-05-19, 23:26:13" FileAge="1526788573113" FileType="3072" />
-      <File Name="Generated_Code/CMUserial.c" FileDate="2018-05-19, 21:46:40" FileAge="1526782600132" FileType="45637" CompNumb="38" />
-      <File Name="Generated_Code/Bit1.h" FileDate="2018-05-17, 18:09:06" FileAge="1526596746676" FileType="45637" CompNumb="55" />
-      <File Name="Generated_Code/Bit1.c" FileDate="2018-05-17, 18:09:06" FileAge="1526596746668" FileType="45637" CompNumb="55" />
       <File Name="Documentation/Crusher_Settings.xml" FileDate="2018-05-21, 11:47:00" FileAge="1526919420796" FileType="3072" />
-      <File Name="Generated_Code/PE_Const.h" FileDate="2018-05-16, 15:29:47" FileAge="1526500787808" FileType="45637" />
+      <File Name="Sources/Events.h" FileDate="2018-05-23, 17:43:49" FileAge="1527113629273" FileType="131328" />
+      <File Name="Sources/main.c" FileDate="2018-06-03, 16:19:57" FileAge="1528058997218" FileType="128" />
+      <File Name="Generated_Code/PE_Const.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007471" FileType="45637" />
+      <File Name="Generated_Code/PE_Error.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007476" FileType="45637" />
+      <File Name="Sources/Events.c" FileDate="2018-05-23, 17:51:28" FileAge="1527114088684" FileType="131328" />
+      <File Name="Generated_Code/M1pwm.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007657" FileType="45637" CompNumb="8" />
+      <File Name="Generated_Code/SHARPadc.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007592" FileType="45637" CompNumb="36" />
+      <File Name="Generated_Code/M1pwm.c" FileDate="2018-06-03, 16:20:07" FileAge="1528059007646" FileType="45637" CompNumb="8" />
+      <File Name="Generated_Code/M2pwm.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007634" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/IO_Map.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007466" FileType="45637" />
+      <File Name="Generated_Code/CMUserial.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007568" FileType="45637" CompNumb="38" />
+      <File Name="Generated_Code/M1bit.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007612" FileType="45637" CompNumb="11" />
+      <File Name="Generated_Code/Bit1.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007497" FileType="45637" CompNumb="55" />
+      <File Name="Generated_Code/Vectors.c" FileDate="2018-06-03, 16:20:07" FileAge="1528059007412" FileType="45637" CompNumb="4" />
+      <File Name="Generated_Code/PE_Types.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007487" FileType="45637" />
+      <File Name="Generated_Code/SHARPadc.c" FileDate="2018-06-03, 16:20:07" FileAge="1528059007580" FileType="45637" CompNumb="36" />
+      <File Name="Generated_Code/IO_Map.c" FileDate="2018-06-03, 16:20:07" FileAge="1528059007452" FileType="45637" />
+      <File Name="Generated_Code/M2pwm.c" FileDate="2018-06-03, 16:20:07" FileAge="1528059007623" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/CMUserial.c" FileDate="2018-06-03, 16:20:07" FileAge="1528059007556" FileType="45637" CompNumb="38" />
+      <File Name="Generated_Code/M1bit.c" FileDate="2018-06-03, 16:20:07" FileAge="1528059007607" FileType="45637" CompNumb="11" />
+      <File Name="Generated_Code/Bit1.c" FileDate="2018-06-03, 16:20:07" FileAge="1528059007492" FileType="45637" CompNumb="55" />
+      <File Name="Generated_Code/M2bit.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007602" FileType="45637" CompNumb="12" />
+      <File Name="Generated_Code/PE_Timer.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007441" FileType="45637" />
+      <File Name="Generated_Code/M2bit.c" FileDate="2018-06-03, 16:20:07" FileAge="1528059007597" FileType="45637" CompNumb="12" />
+      <File Name="Generated_Code/PE_Timer.c" FileDate="2018-06-03, 16:20:07" FileAge="1528059007437" FileType="45637" />
+      <File Name="Generated_Code/Cpu.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007431" FileType="45637" CompNumb="4" />
+      <File Name="Generated_Code/BLUETOOTHserial.h" FileDate="2018-06-03, 16:20:07" FileAge="1528059007544" FileType="45637" CompNumb="42" />
+      <File Name="Generated_Code/Cpu.c" FileDate="2018-06-03, 16:20:07" FileAge="1528059007427" FileType="45637" CompNumb="4" />
+      <File Name="Generated_Code/BLUETOOTHserial.c" FileDate="2018-06-03, 16:20:07" FileAge="1528059007532" FileType="45637" CompNumb="42" />
+      <File Name="Documentation/Crusher.txt" FileDate="2018-05-19, 23:26:13" FileAge="1526788573113" FileType="3072" />
+      <File Name="Documentation/Crusher_SIGNALS.txt" FileDate="2018-06-03, 16:20:07" FileAge="1528059007683" FileType="3072" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>89</CodeGenReference>
+  <CodeGenReference>90</CodeGenReference>
 </CodeGenerationInfo>

@@ -8,36 +8,43 @@
 C_SRCS_QUOTED += \
 "../Sources/componentes/cmu.c" \
 "../Sources/componentes/control.c" \
+"../Sources/componentes/motores.c" \
 "../Sources/componentes/sharp.c" \
 
 C_SRCS += \
 ../Sources/componentes/cmu.c \
 ../Sources/componentes/control.c \
+../Sources/componentes/motores.c \
 ../Sources/componentes/sharp.c \
 
 OBJS += \
 ./Sources/componentes/cmu_c.obj \
 ./Sources/componentes/control_c.obj \
+./Sources/componentes/motores_c.obj \
 ./Sources/componentes/sharp_c.obj \
 
 OBJS_QUOTED += \
 "./Sources/componentes/cmu_c.obj" \
 "./Sources/componentes/control_c.obj" \
+"./Sources/componentes/motores_c.obj" \
 "./Sources/componentes/sharp_c.obj" \
 
 C_DEPS += \
 ./Sources/componentes/cmu_c.d \
 ./Sources/componentes/control_c.d \
+./Sources/componentes/motores_c.d \
 ./Sources/componentes/sharp_c.d \
 
 OBJS_OS_FORMAT += \
 ./Sources/componentes/cmu_c.obj \
 ./Sources/componentes/control_c.obj \
+./Sources/componentes/motores_c.obj \
 ./Sources/componentes/sharp_c.obj \
 
 C_DEPS_QUOTED += \
 "./Sources/componentes/cmu_c.d" \
 "./Sources/componentes/control_c.d" \
+"./Sources/componentes/motores_c.d" \
 "./Sources/componentes/sharp_c.d" \
 
 
@@ -63,9 +70,17 @@ Sources/componentes/control_c.obj: ../Sources/componentes/control.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/componentes/sharp_c.obj: ../Sources/componentes/sharp.c
+Sources/componentes/motores_c.obj: ../Sources/componentes/motores.c
 	@echo 'Building file: $<'
 	@echo 'Executing target #5 $<'
+	@echo 'Invoking: ColdFire Compiler'
+	"$(CF_ToolsDirEnv)/mwccmcf" @@"Sources/componentes/motores.args" -o "Sources/componentes/motores_c.obj" "$<" -MD -gccdep
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Sources/componentes/sharp_c.obj: ../Sources/componentes/sharp.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #6 $<'
 	@echo 'Invoking: ColdFire Compiler'
 	"$(CF_ToolsDirEnv)/mwccmcf" @@"Sources/componentes/sharp.args" -o "Sources/componentes/sharp_c.obj" "$<" -MD -gccdep
 	@echo 'Finished building: $<'

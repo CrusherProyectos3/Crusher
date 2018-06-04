@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 18
+#Progress monitor hint: 19
 first : all
 -include ../makefile.init
 
@@ -91,14 +91,14 @@ endif
 # Tool invocations
 Crusher.elf: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/ProcessorExpert.lcf
 	@echo 'Building target: $@'
-	@echo 'Executing target #19 $@'
+	@echo 'Executing target #20 $@'
 	@echo 'Invoking: ColdFire Linker'
 	"$(CF_ToolsDirEnv)/mwldmcf" -o "Crusher.elf" @@"Crusher.args"  $(USER_OBJS_QUOTED) $(LIBS_QUOTED)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 Crusher.elf.s19: $(BBL_SRCS) $(EXECUTABLES)
-	@echo 'Executing target #20 $@'
+	@echo 'Executing target #21 $@'
 	@echo 'Invoking: Burner'
 	"$(HC08ToolsEnv)/burner.exe"  -f="$<" -env"ABS_FILE=$(strip $(EXECUTABLES_OS_FORMAT))"
 	@echo 'Finished building: $@'
@@ -106,7 +106,7 @@ Crusher.elf.s19: $(BBL_SRCS) $(EXECUTABLES)
 
 # Other Targets
 clean:
-	-$(RM) $(S_DEPS_QUOTED) "./*/*.obj" "./*/*/*.obj"  $(CPP_DEPS_QUOTED) $(CC_DEPS_QUOTED) $(_OUTPUTTYPE_NAME_BURNER_OUTPUT_OUTPUTS_QUOTED) $(S_UPPER_DEPS_QUOTED) $(CXX_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(C_UPPER_DEPS_QUOTED) $(C++_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*.d" "./*/*/*.d"  $(ProjDirPath)/FLASH/Crusher.elf $(ProjDirPath)/FLASH/Crusher.args $(ProjDirPath)/FLASH/Crusher.elf.xMAP
+	-$(RM) $(S_DEPS_QUOTED) "./*/*.obj" "./*/*/*.obj"  $(CPP_DEPS_QUOTED) $(CC_DEPS_QUOTED) $(_OUTPUTTYPE_NAME_BURNER_OUTPUT_OUTPUTS_QUOTED) $(S_UPPER_DEPS_QUOTED) $(CXX_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(C_UPPER_DEPS_QUOTED) $(C++_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*.d" "./*/*/*.d"  $(ProjDirPath)/FLASH/Crusher.elf $(ProjDirPath)/FLASH/Crusher.args $(ProjDirPath)/FLASH/Crusher.elf.S19 $(ProjDirPath)/FLASH/Crusher.elf.xMAP
 	-@echo ' '
 
 .PHONY: all clean dependents explicit-dependencies warning-messages
